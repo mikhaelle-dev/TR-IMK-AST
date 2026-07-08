@@ -1,0 +1,190 @@
+/* CONFIG & PALETTE WARNA */
+:root {
+    --primary-color: #007A99;      /* Teal/Blue Utama */
+    --navy-dark: #0B243F;          /* Navy Footer & Heading */
+    --soft-bg: #F4F9FA;            /* Background lembut */
+    --text-muted: #6C757D;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    overflow-x: hidden;
+}
+
+/* Kustomisasi Helper */
+.text-navy { color: var(--navy-dark); }
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.fs-7 { font-size: 0.875rem; }
+.fs-8 { font-size: 0.75rem; }
+.space-y-1 > li + li { margin-top: 0.25rem; }
+.space-y-2 > li + li { margin-top: 0.5rem; }
+
+/* NAVBAR */
+.navbar-nav .nav-link {
+    color: #555550;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 0.95rem;
+}
+.navbar-nav .nav-link.active {
+    position: relative;
+}
+/* Garis bawah tipis khas figma untuk menu aktif */
+.navbar-nav .nav-link.active::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: var(--primary-color);
+    margin: 2px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+    background-size: cover;
+    min-height: 480px;
+    padding: 80px 0;
+}
+
+/* SEARCH WIDGET */
+.search-widget {
+    max-width: 950px;
+}
+.btn-search {
+    background-color: var(--primary-color);
+    transition: background 0.3s;
+}
+.btn-search:hover {
+    background-color: #00637C;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-end: 1px solid #E9ECEF;
+    }
+}
+
+/* CATEGORY CARD */
+.category-card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+}
+.category-card.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+.category-card.active .text-muted, 
+.category-card.active .icon-box {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+.category-card .icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 122, 153, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+}
+.category-card.active .icon-box {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* TOUR PACKAGE CARD */
+.tour-img {
+    height: 220px;
+    object-fit: cover;
+}
+.btn-wishlist {
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.btn-wishlist:hover {
+    transform: scale(1.1);
+}
+.btn-navy {
+    background-color: var(--primary-color);
+    border: none;
+    transition: background 0.2s;
+}
+.btn-navy:hover {
+    background-color: var(--navy-dark);
+}
+
+/* CALL TO ACTION (CTA) BANNER */
+.cta-banner {
+    background: linear-gradient(rgba(0, 122, 153, 0.85), rgba(0, 122, 153, 0.85)), 
+                url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1000&q=80') center center;
+    background-size: cover;
+}
+
+/* GALLERY / ACCORDION SLIDER AREA */
+.gallery-section {
+    max-height: 400px;
+    overflow: hidden;
+}
+.gallery-img {
+    height: 400px;
+    object-fit: cover;
+}
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    border: none;
+    padding: 10px 15px;
+    transition: background 0.2s;
+}
+.gallery-arrow:hover {
+    background: rgba(0,0,0,0.6);
+}
+.left-arrow { left: 20px; border-radius: 0 4px 4px 0; }
+.right-arrow { right: 20px; border-radius: 4px 0 0 4px; }
+
+/* FOOTER */
+.footer-section {
+    background-color: var(--navy-dark);
+}
+.text-muted-footer {
+    color: #A0AEC0;
+}
+.footer-links a {
+    color: #A0AEC0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: white;
+}
+.social-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.social-icon:hover {
+    background: var(--primary-color);
+}

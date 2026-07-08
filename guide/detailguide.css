@@ -1,0 +1,352 @@
+/* Variables */
+:root {
+    --primary-color: #007c9c;
+    --secondary-color: #3bb2d0;
+    --dark-color: #1a2530;
+    --text-muted: #6c757d;
+    --bg-light: #f8fbfa;
+    --footer-bg: #293441;
+    --border-color: #eaedf1;
+    --primary-blue: #0088ff;
+    --accent-blue: #38bdf8;
+    --teal-dark: #0c5974;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--dark-color);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Utilities */
+.text-primary-custom {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary-light {
+    background-color: var(--primary-light);
+}
+
+.line-height-lg {
+    line-height: 1.7;
+}
+
+        /* Navbar */
+.navbar {
+    background: #fff;
+    padding: 18px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+.navbar-brand {
+    font-size: 1.55rem;
+    font-weight: 1000;
+    color: #007c9c !important;
+}
+.navbar-brand i {
+    color: #3bb2d0;
+    font-size: 1.3rem;
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    color: #1a2530 !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 10px 8px !important;
+    border-bottom: 2px solid transparent;
+    transition: .3s;
+}
+.nav-link:hover {
+    color: #007c9c !important;
+}
+.nav-link.active {
+    color: #007c9c !important;
+    border-bottom: 2px solid #007c9c;
+}
+.profile-icon {
+    color: #007c9c;
+    font-size: 1.3rem;
+    transition: .3s;
+}
+.profile-icon:hover {
+    color: #3bb2d0;
+}
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-nav {
+        gap: 0;
+    }
+    .nav-link {
+        padding: 12px !important;
+    }
+}
+
+/* ================= Guide Detail ================= */
+
+.guide-detail{
+    margin-top:25px;
+    margin-bottom:80px;
+}
+
+.btn-back{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    background:transparent;
+
+    color:var(--text-dark);
+
+    font-size:28px;
+
+    padding:0;
+    margin-top:-10px;
+    margin-left: -50px;
+}
+
+.btn-back:hover{
+    color:var(--primary-color);
+}
+
+/* Card */
+
+.custom-card{
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    box-shadow:none;
+}
+
+@media (max-width:992px){
+
+    .guide-detail{
+        margin-top:15px;
+    }
+
+    .btn-back{
+        margin:0 0 20px 0;
+    }
+
+}
+
+/* Profile Section */
+.profile-img-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: var(--primary-color);
+    background-color: white;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding: 2px;
+}
+
+/* Stat Box */
+.stat-box {
+    background-color: var(--primary-light);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Progress Bars */
+.progress {
+    height: 10px;
+    background-color: var(--primary-light);
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Icon & Lists Details */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary-custom:hover {
+    background-color: #035366;
+    color: white;
+}
+
+/* Review Avatars */
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: #d1d5db;
+        }
+        footer h5 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+        footer ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer ul li a:hover {
+            color: white;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+/* Consultation Success Popup */
+.consultation-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 16px;
+}
+.consultation-overlay.show { display: flex; }
+.consultation-modal {
+    background: #ffffff;
+    border: 1px solid #e2ecf5;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+    text-align: center;
+    animation: consultPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+@keyframes consultPop {
+    from { opacity: 0; transform: scale(0.92) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.consultation-check {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px auto 18px;
+    color: #10b981;
+    font-size: 32px;
+    background: rgba(16, 185, 129, 0.08);
+}
+.consultation-modal h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1e293b;
+    font-weight: 700;
+}
+.consultation-modal p {
+    color: #64748b;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+.consultation-close-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: 1.5px solid #e2ecf5;
+    background: transparent;
+    color: #3d4f60;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+.consultation-close-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(4, 102, 124, 0.08);
+}

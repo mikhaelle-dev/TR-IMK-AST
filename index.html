@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis - Home</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #007c9c;
+            --secondary-color: #3bb2d0;
+            --dark-color: #1a2530;
+            --text-muted: #6c757d;
+            --bg-light: #f8fbfa;
+            --footer-bg: #293441;
+            --border-color: #eaedf1;
+            --primary-blue: #0088ff;
+            --accent-blue: #38bdf8;
+            --teal-dark: #0c5974;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary-color);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin: 0 10px;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 550px;
+            background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 120px;
+            /* Space for absolute search box */
+        }
+
+        .hero-title {
+            color: white;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 3.5rem;
+        }
+
+        .hero-title span {
+            color: #6edbf6;
+        }
+
+        /* --- Booking Widget --- */
+        .booking-widget {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 90%;
+            position: absolute;
+            bottom: -60px;
+            /* Overlap the hero section */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 30px;
+            z-index: 10;
+        }
+
+        .widget-tabs button {
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: #6c757d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .widget-tabs button.active {
+            background: rgba(0, 136, 255, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .trip-tab {
+            position: relative;
+        }
+
+        .trip-tab.active {
+            color: var(--primary-blue);
+        }
+
+        .trip-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .widget-inputs-container {
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), gap 0.45s ease;
+        }
+
+        .widget-inputs-container.round-trip-active {
+            transform: translateX(-4px);
+        }
+
+        .widget-input-group {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 10px 15px;
+            flex: 1;
+            min-width: 150px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            position: relative;
+        }
+
+        .widget-input-group.date-group {
+            cursor: default;
+        }
+
+        .widget-input-group:hover {
+            border-color: var(--primary-blue);
+            background: rgba(0, 136, 255, 0.02);
+        }
+
+        .widget-input-group label {
+            font-size: 0.75rem;
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .widget-input-group input {
+            border: none;
+            padding: 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: 100%;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .widget-input-group input:focus {
+            outline: none;
+        }
+
+        /* Style ikon kalender di input date (tampilkan kembali, bisa diklik) */
+        .widget-input-group input[type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            display: block;
+        }
+
+        .widget-input-group input[type="date"]::-webkit-outer-spin-button,
+        .widget-input-group input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .date-trigger {
+            cursor: pointer;
+        }
+
+        .destination-select {
+            border: none;
+            padding: 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: 100%;
+            background: transparent;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .destination-select:focus {
+            outline: none;
+        }
+
+        .destination-select optgroup {
+            font-weight: 700;
+            color: #0088ff;
+        }
+
+        .destination-select option {
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        /* --- Destination Modal --- */
+        .destination-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .destination-modal.active {
+            display: flex;
+        }
+
+        .destination-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .region-buttons {
+            gap: 12px;
+        }
+
+        .region-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .region-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--primary-blue);
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-back:hover {
+            opacity: 0.7;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px 28px;
+        }
+
+        .destination-option {
+            background: transparent;
+            border: none;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #333;
+            display: block;
+            min-height: auto;
+        }
+
+        .destination-option:hover {
+            border-color: transparent;
+            background: transparent;
+            color: var(--primary-blue);
+            transform: translateX(5px);
+            box-shadow: none;
+        }
+
+        @media (max-width: 1024px) {
+            .booking-widget {
+                padding: 15px 20px;
+                max-width: 95%;
+            }
+
+            .widget-inputs-container {
+                flex-direction: column !important;
+            }
+
+            .widget-inputs-container.round-trip-active {
+                transform: none;
+            }
+
+            .widget-input-group {
+                min-width: auto;
+            }
+
+            .return-date-field.visible {
+                max-width: none;
+                min-width: auto !important;
+            }
+
+            .guide-card-wide {
+                min-width: 90vw;
+                flex-direction: column;
+            }
+
+            .guide-img-box {
+                width: 100%;
+                min-width: auto;
+                height: 260px;
+            }
+
+            .guide-section .scroll-horizontal {
+                scroll-padding-left: 16px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destination-modal-content {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+
+            .region-buttons {
+                justify-content: space-between;
+            }
+
+            .region-btn {
+                flex: 0 1 calc(50% - 6px);
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px 30px;
+            }
+
+            .destination-option {
+                font-size: 0.85rem;
+            }
+        }
+
+        .return-date-field {
+            flex: 0 0 0;
+            min-width: 0 !important;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding-left: 0;
+            padding-right: 0;
+            border-width: 0;
+            margin: 0;
+            pointer-events: none;
+            transition: flex 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease,
+                padding 0.45s ease,
+                border-width 0.45s ease,
+                margin 0.45s ease;
+        }
+
+        .return-date-field.visible {
+            flex: 1;
+            min-width: 150px !important;
+            max-width: 280px;
+            opacity: 1;
+            padding: 10px 15px;
+            border-width: 1px;
+            pointer-events: auto;
+        }
+
+        .price-guarantee {
+            color: var(--primary-blue);
+        }
+
+        .price-guarantee i {
+            color: var(--primary-blue);
+        }
+
+        /* Spacer under hero to accommodate absolute widget */
+        .hero-spacer {
+            height: 220px;
+        }
+
+        /* --- Horizontal Scrollers (Hide Scrollbar) --- */
+        .scroll-horizontal {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 18px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .scroll-horizontal::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Chrome */
+
+        /* --- Popular Destinations --- */
+        .popular-destinations {
+            width: 100vw;
+            padding-top: 50px;
+            margin-left: calc(50% - 50vw);
+            padding-left: clamp(12px, 2.5vw, 40px);
+            padding-right: clamp(12px, 2.5vw, 40px);
+        }
+
+        .popular-destinations .scroll-horizontal {
+            padding-right: clamp(12px, 2.5vw, 40px);
+        }
+
+        .popular-destinations h4 {
+            font-size: 1.6rem;
+        }
+
+        .popular-destinations>p {
+            font-size: 0.95rem;
+        }
+
+        .dest-tall-card {
+            min-width: 260px;
+            height: 390px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            scroll-snap-align: start;
+        }
+
+        .dest-tall-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dest-tall-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .destination-popup {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            background: #fff;
+            border-radius: 0;
+            padding: 18px 20px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, .1);
+            transform: translateY(120%);
+            opacity: 0;
+            transition: .35s;
+        }
+
+        .dest-tall-card:hover .destination-popup {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .destination-popup h6 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .destination-popup small {
+            color: #777;
+            display: block;
+        }
+
+        .destination-popup h5 {
+            color: #1b74e4;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .premier-adventure {
+            margin-top: 160px;
+        }
+
+        .premier-book-btn:hover,
+        .premier-book-btn:focus {
+            background-color: #fff !important;
+            color: var(--primary-blue) !important;
+            border-color: var(--primary-blue) !important;
+            box-shadow: 0 10px 24px rgba(0, 136, 255, 0.16);
+        }
+
+        /* --- Overlapping Image Section --- */
+        .overlap-imgs {
+            position: relative;
+            height: 450px;
+        }
+
+        .img-back {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            width: 65%;
+            height: 320px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-front {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 60%;
+            height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 8px solid var(--bg-light);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        /* Packages */
+        .card-custom {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .heart-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .heart-icon:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.08);
+        }
+
+        .heart-icon.liked {
+            background: white;
+        }
+
+        .heart-icon.liked i {
+            color: #ff4757;
+        }
+
+        .package-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 0.8rem;
+        }
+
+        .package-info {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .package-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .btn-outline-custom {
+            border: 2px solid var(--primary-blue);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-color));
+            box-shadow: 0 4px 14px rgba(0, 136, 255, 0.2);
+        }
+
+        .btn-outline-custom:hover,
+        .btn-outline-custom:focus {
+            background: #fff;
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 136, 255, 0.22);
+        }
+
+        /* --- btn-find (Book This Guide / See More) --- */
+        .btn-find {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-color, #3bb2d0));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 136, 255, 0.25);
+            cursor: pointer;
+        }
+
+        .btn-find:hover,
+        .btn-find:focus {
+            background: #fff;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 136, 255, 0.22);
+        }
+
+        /* --- Find Tickets button in widget --- */
+        .btn.btn-primary.fw-bold.rounded-pill {
+            transition: all 0.3s ease;
+        }
+
+        .btn.btn-primary.fw-bold.rounded-pill:hover {
+            background-color: #fff !important;
+            color: var(--primary-blue) !important;
+            border: 2px solid var(--primary-blue) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 136, 255, 0.2);
+        }
+
+        /* Tour Guides */
+        .guide-section {
+            background-color: #fafbfc;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .guide-section .scroll-horizontal {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: clamp(16px, 2.5vw, 40px);
+            padding-left: clamp(16px, 2.5vw, 40px);
+            padding-right: clamp(16px, 2.5vw, 40px);
+            gap: 24px;
+        }
+
+        .guide-card-wide {
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            min-width: 80vw;
+            max-width: 1200px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border: 1px solid var(--border-color);
+            gap: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .guide-img-box {
+            position: relative;
+            min-width: 280px;
+            width: 280px;
+            height: 330px;
+            flex-shrink: 0;
+        }
+
+        .guide-img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #e2eff3;
+            border-radius: 16px;
+            transform: translate(-10px, 10px);
+            z-index: 0;
+        }
+
+        .guide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guide-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .guide-name {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+
+        .guide-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guide-stats {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .review-card {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            background: white;
+            height: 100%;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        x .review-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .review-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .verified-badge {
+            color: #0d6efd;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .review-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .review-actions .like-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+
+        .review-actions .like-btn:hover {
+            color: var(--primary-blue);
+            background: rgba(0, 136, 255, 0.1);
+            transform: scale(1.1);
+        }
+
+        .review-actions .like-btn.liked {
+            color: var(--primary-blue);
+            background: rgba(0, 136, 255, 0.15);
+        }
+
+        .review-actions .share-icon {
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .review-actions .share-icon:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding-top: 4rem;
+            padding-bottom: 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            color: #adb5bd;
+            line-height: 1.6;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="asset/css/common.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><i class="fa-solid fa-chart-pie"></i> Artemis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="destination/destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="tour/tour.html">Tour Package</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide/guide.html">Tour Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq/faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="about-us/about.html">About Us</a></li>
+            </ul></div>
+        <div class="d-none d-lg-block"><a href="akun/akun.html" class="profile-icon" aria-label="Profile"><i class="fa-solid fa-user"></i></a></div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section with Search Widget -->
+    <section class="hero-section">
+        <div class="container text-center text-white pb-5">
+            <h1 class="hero-title">Explore the World Closer with<br><span>Artemis</span></h1>
+        </div>
+
+        <!-- Search Widget -->
+        <div class="booking-widget text-start">
+            <div class="widget-tabs d-flex gap-3 mb-3 border-bottom pb-2">
+                <button class="trip-tab active" data-trip="oneway"><i
+                        class="fas fa-arrow-right me-2"></i>One-way</button>
+                <button class="trip-tab" data-trip="roundtrip"><i
+                        class="fas fa-exchange-alt me-2"></i>Round-trip</button>
+            </div>
+            <div class="d-flex flex-column flex-lg-row gap-2 widget-inputs-container">
+                <div class="widget-input-group d-flex align-items-center gap-2 origin-trigger">
+                    <i class="fas fa-map-marker-alt text-primary"></i>
+                    <div style="flex: 1;">
+                        <label>Origin of Departure</label>
+                        <input type="text" class="origin-input" placeholder="Select Home City" readonly>
+                    </div>
+                </div>
+                <div class="widget-input-group d-flex align-items-center gap-2 destination-trigger">
+                    <i class="fas fa-exchange-alt text-primary"></i>
+                    <div style="flex: 1;">
+                        <label>Destination</label>
+                        <input type="text" class="destination-input" placeholder="Select Destination" readonly>
+                    </div>
+                </div>
+                <div class="widget-input-group date-group d-flex align-items-center gap-2 date-trigger"
+                    data-target="departureDate">
+                    <i class="far fa-calendar text-primary"></i>
+                    <div style="flex: 1;">
+                        <label>Departure Date</label>
+                        <input type="date" id="departureDate" class="departure-date-input" value="2026-07-10"
+                            placeholder="mm/dd/yyyy">
+                    </div>
+                </div>
+                <div class="widget-input-group date-group return-date-field d-flex align-items-center gap-2 date-trigger"
+                    id="returnDateField" data-target="returnDate">
+                    <i class="far fa-calendar-check text-primary"></i>
+                    <div style="flex: 1;">
+                        <label>Return Date</label>
+                        <input type="date" id="returnDate" class="return-date-input" value="2026-07-17"
+                            placeholder="mm/dd/yyyy">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                <small class="price-guarantee fw-semibold"><i class="fas fa-check-circle me-1"></i>Best price guarantee
+                    for
+                    your nature adventure!</small>
+                <button class="btn btn-primary fw-bold px-4 rounded-pill">Find Tickets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Most Popular Destinations -->
+    <div class="container">
+        <div class="popular-destinations mt-1 mb-5 pb-2 border-bottom">
+            <h4 class="fw-bold fs-2 mb-2">Most Popular Destinations</h4>
+            <p class="text-muted fs-4 mb-5">Choose and plan for a refreshing nature experience</p>
+
+            <div class="scroll-horizontal">
+                <!-- Cards -->
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=500&auto=format&fit=crop"
+                        alt="Fuji">
+                    <div class="destination-popup">
+                        <h6>Mount Fuji, Japan</h6>
+                        <small>Start from</small>
+                        <h5>$650</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=500&auto=format&fit=crop"
+                        alt="Raja Ampat">
+                    <div class="destination-popup">
+                        <h6>Raja Ampat, Indonesia</h6>
+                        <small>Start from</small>
+                        <h5>$520</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=500&auto=format&fit=crop"
+                        alt="Pyramids">
+                    <div class="destination-popup">
+                        <h6>Cairo, Egypt</h6>
+                        <small>Start from</small>
+                        <h5>$480</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://i.pinimg.com/736x/77/cf/c0/77cfc0f1417bfed013d059a92e187da0.jpg" alt="Paris">
+                    <div class="destination-popup">
+                        <h6>Paris, France</h6>
+                        <small>Start from</small>
+                        <h5>$890</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=500&auto=format&fit=crop"
+                        alt="Rio">
+                    <div class="destination-popup">
+                        <h6>Rio de Janeiro, Brazil</h6>
+                        <small>Start from</small>
+                        <h5>$720</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?q=80&w=500&auto=format&fit=crop"
+                        alt="Balloons">
+                    <div class="destination-popup">
+                        <h6>Cappadocia, Turkey</h6>
+                        <small>Start from</small>
+                        <h5>$610</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=500&auto=format&fit=crop"
+                        alt="Taj Mahal">
+                    <div class="destination-popup">
+                        <h6>Agra, India</h6>
+                        <small>Start from</small>
+                        <h5>$430</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=500&auto=format&fit=crop"
+                        alt="Lake House">
+                    <div class="destination-popup">
+                        <h6>Lake Bled, Slovenia</h6>
+                        <small>Start from</small>
+                        <h5>$540</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=500&auto=format&fit=crop"
+                        alt="Dubai">
+                    <div class="destination-popup">
+                        <h6>Dubai, UAE</h6>
+                        <small>Start from</small>
+                        <h5>$780</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=500&auto=format&fit=crop"
+                        alt="Santorini">
+                    <div class="destination-popup">
+                        <h6>Santorini, Greece</h6>
+                        <small>Start from</small>
+                        <h5>$950</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=500&auto=format&fit=crop"
+                        alt="Beach">
+                    <div class="destination-popup">
+                        <h6>Bora Bora, Polynesia</h6>
+                        <small>Start from</small>
+                        <h5>$1,200</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=500&auto=format&fit=crop"
+                        alt="Mountain Road">
+                    <div class="destination-popup">
+                        <h6>Swiss Alps</h6>
+                        <small>Start from</small>
+                        <h5>$680</h5>
+                    </div>
+                </div>
+                <div class="dest-tall-card">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=500&auto=format&fit=crop"
+                        alt="India">
+                    <div class="destination-popup">
+                        <h6>Jaipur, India</h6>
+                        <small>Start from</small>
+                        <h5>$410</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premier Adventure Section -->
+    <div class="container">
+        <div class="row align-items-center mb-5 pb-5 premier-adventure">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="overlap-imgs">
+                    <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600&auto=format&fit=crop"
+                        class="img-back" alt="Climbing">
+                    <img src="https://i.pinimg.com/1200x/9e/0c/94/9e0c9487444f113272f2b354ede141be.jpg"
+                        class="img-front" alt="Surfing">
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <h6 class="text-primary fw-bold mb-1">Artemis</h6>
+                <h2 class="display-6 fw-bold mb-4" style="color: var(--teal-dark);">Premier Adventure<br>Travel Company
+                </h2>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                    <div class="bg-light rounded-circle p-3 text-primary fs-4"><i class="fas fa-gem"></i></div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Eksklusif Travel</h5>
+                        <p class="text-muted small mb-0">Travel planner for refreshing environment nature experience.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                    <div class="bg-light rounded-circle p-3 text-primary fs-4"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Personal Guide</h5>
+                        <p class="text-muted small mb-0">Professionally outsmarting all exclusive nature extremes.</p>
+                    </div>
+                </div>
+
+                <a href="about-us/about.html"
+                    class="btn btn-primary fw-bold rounded-pill px-5 py-2 mt-2 premier-book-btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Travel Packages -->
+    <section class="container mt-4">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Top Travel Packages</h2>
+            <p class="section-subtitle">Explore our featured packages designed to bring you the perfect<br>blend of
+                comfort, adventure, and memorable moments.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Package 1 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top" alt="Bali">
+                        <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="package-title">Bali Luxury Family Escape</h5>
+                        <div class="stars mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-muted ms-1" style="font-size: 0.75rem;">4.8 (124 Komentar)</span>
+                        </div>
+                        <div class="package-info">
+                            <div><i class="fa-regular fa-clock me-1"></i> 4 Days</div>
+                            <div><i class="fa-solid fa-user-group me-1"></i> Up to 6 People</div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-end mt-4 pt-3 border-top">
+                            <div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Starting from</div>
+                                <div class="package-price">IDR 4.500.000</div>
+                            </div>
+                            <button class="btn-outline-custom">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top" alt="Yogyakarta">
+                        <div class="heart-icon liked"><i class="fa-solid fa-heart"></i></div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="package-title">Heritage Love in Yogyakarta</h5>
+                        <div class="stars mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-regular fa-star"></i>
+                            <span class="text-muted ms-1" style="font-size: 0.75rem;">4.1 (300 Komentar)</span>
+                        </div>
+                        <div class="package-info">
+                            <div><i class="fa-regular fa-clock me-1"></i> 3 Days</div>
+                            <div><i class="fa-solid fa-user-group me-1"></i> Couple Only</div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-end mt-4 pt-3 border-top">
+                            <div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Starting from</div>
+                                <div class="package-price">IDR 4.500.000</div>
+                            </div>
+                            <button class="btn-outline-custom">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top" alt="Bromo">
+                        <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="package-title">Bromo Volcanic Adventure</h5>
+                        <div class="stars mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            <span class="text-muted ms-1" style="font-size: 0.75rem;">4.9 (2k3 Komentar)</span>
+                        </div>
+                        <div class="package-info">
+                            <div><i class="fa-regular fa-clock me-1"></i> 1 Days</div>
+                            <div><i class="fa-solid fa-user-group me-1"></i> Open Trip</div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-end mt-4 pt-3 border-top">
+                            <div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Starting from</div>
+                                <div class="package-price">IDR 350.000</div>
+                            </div>
+                            <button class="btn-outline-custom">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-find px-5">See More</button>
+        </div>
+    </section>
+
+    <!-- Professional Tour Guide (Horizontal Scroll) -->
+    <section class="guide-section">
+        <div class="container-fluid px-4 px-md-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Professional Tour Guide</h2>
+                <p class="section-subtitle">Guide options for a refreshing nature experience.</p>
+            </div>
+
+            <div class="scroll-horizontal pb-4">
+
+                <!-- Guide 1 -->
+                <div class="guide-card-wide">
+                    <div class="guide-img-box">
+                        <div class="guide-img-bg"></div>
+                        <img src="https://i.pinimg.com/736x/6f/ab/e5/6fabe52272c04b0982ba0a0bc6a73779.jpg"
+                            class="guide-img" alt="Guide">
+                    </div>
+                    <div class="d-flex flex-column justify-content-between p-2">
+                        <div>
+                            <div class="guide-tag">Featured Specialist</div>
+                            <h4 class="guide-name">Meet your host, Riji Cassanova</h4>
+                            <div class="stars mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size: 0.75rem;">(120+ Positive Reviews)</span>
+                            </div>
+                            <p class="guide-desc">Discover expertly crafted travel packages featuring breathtaking
+                                destinations, personalized itineraries, and unforgettable experiences designed to make
+                                every journey seamless and extraordinary for travelers seeking comfort, adventure, and
+                                lasting memories together.</p>
+                        </div>
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Languages</div>
+                                English, Japanese, ID
+                            </div>
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Experience</div>
+                                12+ Years Professional
+                            </div>
+                        </div>
+                        <div>
+    <a href="guide/riji.html" class="btn btn-find btn-sm px-4">
+        Book This Guide
+    </a>
+</div>
+                    </div>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="guide-card-wide">
+                    <div class="guide-img-box">
+                        <div class="guide-img-bg"></div>
+                        <img src="https://i.pinimg.com/1200x/87/17/e1/8717e10f1de9cece362988c51616a4cd.jpg"
+                            class="guide-img" alt="Guide">
+                    </div>
+                    <div class="d-flex flex-column justify-content-between p-2">
+                        <div>
+                            <div class="guide-tag">Featured Specialist</div>
+                            <h4 class="guide-name">Meet your host, Souta</h4>
+                            <div class="stars mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size: 0.75rem;">(100+ Positive Reviews)</span>
+                            </div>
+                            <p class="guide-desc">With over 10 years of experience navigating the hidden corners of Bali
+                                and beyond, Wayan specializes in curated photography tours and cultural immersions. He
+                                speaks fluent English, Japanese, and Indonesian.</p>
+                        </div>
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Languages</div>
+                                English, Japanese, ID, Chinese
+                            </div>
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Experience</div>
+                                10+ Years Professional
+                            </div>
+                        </div>
+                        <div>
+    <a href="guide/souta.html" class="btn btn-find btn-sm px-4">
+        Book This Guide
+    </a>
+</div>
+                    </div>
+                </div>
+                <!-- Guide 3 -->
+                <div class="guide-card-wide">
+                    <div class="guide-img-box">
+                        <div class="guide-img-bg"></div>
+                        <img src="https://i.pinimg.com/1200x/d0/96/f4/d096f452eba10f13ee23582cd9589b67.jpg"
+                            class="guide-img" alt="Guide">
+                    </div>
+                    <div class="d-flex flex-column justify-content-between p-2">
+                        <div>
+                            <div class="guide-tag">Featured Specialist</div>
+                            <h4 class="guide-name">Meet your host, Lee See Ho</h4>
+                            <div class="stars mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size: 0.75rem;">(150+ Positive Reviews)</span>
+                            </div>
+                            <p class="guide-desc">Explore our handpicked travel packages designed to offer exceptional
+                                destinations, seamless planning, and unforgettable moments for travelers seeking
+                                comfort, adventure, authenticity, and meaningful experiences.</p>
+                        </div>
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Languages</div>
+                                English, Japanese, ID, Germany
+                            </div>
+                            <div class="guide-stats w-50">
+                                <div class="text-muted" style="font-size: 0.65rem;">Experience</div>
+                                8+ Years Professional
+                            </div>
+                        </div>
+                        <div>
+    <a href="guide/lee.html" class="btn btn-find btn-sm px-4">
+        Book This Guide
+    </a>
+</div>
+                    </div>
+                </div>
+
+                <!-- Add more guides as needed (omitted exact duplication of 4 & 5 for brevity, but they will perfectly align horizontally) -->
+            </div>
+        </div>
+    </section>
+
+    <!-- What They Say (Testimonials) -->
+    <section class="container mb-5 pb-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">What They Say</h2>
+            <p class="section-subtitle">Read incredible reviews from those who have trusted and worked with us</p>
+        </div>
+
+        <!-- Row 1 (3 items) -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&q=80"
+                            class="review-avatar" alt="User">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Richard B.</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Adventure Seeker</span>
+                        </div>
+                    </div>
+                    <div class="stars mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Great value for money. The tour guides were extremely knowledgeable and
+                        shared fascinating local insights.</p>
+                    <div class="review-footer">
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check me-1"></i> VERIFIED
+                            REVIEW</span>
+                        <div class="review-actions">
+                            <button type="button" class="like-btn" aria-label="Like review"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <i class="fa-solid fa-share-nodes share-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80"
+                            class="review-avatar" alt="User">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Suegeng</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Solo Travel</span>
+                        </div>
+                    </div>
+                    <div class="stars mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">All flights were smooth and on time according to the schedule provided. its
+                        so really goods</p>
+                    <div class="review-footer">
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check me-1"></i> VERIFIED
+                            REVIEW</span>
+                        <div class="review-actions">
+                            <button type="button" class="like-btn" aria-label="Like review"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <i class="fa-solid fa-share-nodes share-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80"
+                            class="review-avatar" alt="User">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Big Girl</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Luxury Travel</span>
+                        </div>
+                    </div>
+                    <div class="stars mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i></div>
+                    <p class="review-text">Booking was seamless. The website is user-friendly and pricing is completely
+                        transparent.</p>
+                    <div class="review-footer">
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check me-1"></i> VERIFIED
+                            REVIEW</span>
+                        <div class="review-actions">
+                            <button type="button" class="like-btn" aria-label="Like review"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <i class="fa-solid fa-share-nodes share-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2 (2 items, Centered) -->
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80"
+                            class="review-avatar" alt="User">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Rara Lee</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Traveler</span>
+                        </div>
+                    </div>
+                    <div class="stars mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-regular fa-star"></i></div>
+                    <p class="review-text">Great value for money. The tour guides were extremely knowledgeable and
+                        shared fascinating local insights.</p>
+                    <div class="review-footer">
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check me-1"></i> VERIFIED
+                            REVIEW</span>
+                        <div class="review-actions">
+                            <button type="button" class="like-btn" aria-label="Like review"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <i class="fa-solid fa-share-nodes share-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                            class="review-avatar" alt="User">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Sha White</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Luxury Travel</span>
+                        </div>
+                    </div>
+                    <div class="stars mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i
+                            class="fa-regular fa-star"></i></div>
+                    <p class="review-text">An absolutely incredible experience! Artemis provided professional and
+                        friendly service throughout the trip.</p>
+                    <div class="review-footer">
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check me-1"></i> VERIFIED
+                            REVIEW</span>
+                        <div class="review-actions">
+                            <button type="button" class="like-btn" aria-label="Like review"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <i class="fa-solid fa-share-nodes share-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Destination Modal -->
+    <div class="destination-modal" id="destinationModal">
+        <div class="destination-modal-content">
+            <button class="modal-close" id="destinationModalClose">&times;</button>
+
+            <div class="modal-step" id="destinationRegionStep">
+                <h5 class="mb-4 fw-bold">Destination</h5>
+                <div class="region-buttons d-flex gap-2 flex-wrap justify-content-center">
+                    <button class="region-btn" data-region="Asia">Asia</button>
+                    <button class="region-btn" data-region="Europe">Europe</button>
+                    <button class="region-btn" data-region="Africa">Africa</button>
+                    <button class="region-btn" data-region="America">America</button>
+                    <button class="region-btn" data-region="Australia">Australia</button>
+                </div>
+            </div>
+
+            <div class="modal-step" id="destinationStep" style="display: none;">
+                <h5 class="mb-4 fw-bold">Destination</h5>
+
+                <div class="region-buttons d-flex gap-2 flex-wrap justify-content-center mb-4">
+                    <button class="region-btn" data-region="Asia">Asia</button>
+                    <button class="region-btn" data-region="Europe">Europe</button>
+                    <button class="region-btn" data-region="Africa">Africa</button>
+                    <button class="region-btn" data-region="America">America</button>
+                    <button class="region-btn" data-region="Australia">Australia</button>
+                </div>
+
+                <div class="destinations-grid" id="destinationsGrid">
+                    <!-- Destinations will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Origin Modal -->
+    <div class="destination-modal" id="originModal">
+        <div class="destination-modal-content">
+            <button class="modal-close" id="originModalClose">&times;</button>
+
+            <div class="modal-step" id="originRegionStep">
+                <h5 class="mb-4 fw-bold">Origin</h5>
+                <div class="region-buttons d-flex gap-2 flex-wrap justify-content-center">
+                    <button class="region-btn" data-region="Asia">Asia</button>
+                    <button class="region-btn" data-region="Europe">Europe</button>
+                    <button class="region-btn" data-region="Africa">Africa</button>
+                    <button class="region-btn" data-region="America">America</button>
+                    <button class="region-btn" data-region="Australia">Australia</button>
+                </div>
+            </div>
+
+            <div class="modal-step" id="originStep" style="display: none;">
+                <h5 class="mb-4 fw-bold">Origin</h5>
+
+                <div class="region-buttons d-flex gap-2 flex-wrap justify-content-center mb-4">
+                    <button class="region-btn" data-region="Asia">Asia</button>
+                    <button class="region-btn" data-region="Europe">Europe</button>
+                    <button class="region-btn" data-region="Africa">Africa</button>
+                    <button class="region-btn" data-region="America">America</button>
+                    <button class="region-btn" data-region="Australia">Australia</button>
+                </div>
+
+                <div class="destinations-grid" id="originsGrid">
+                    <!-- Origins will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+    <div class="container mt-4">
+        <div class="row gy-4 border-bottom border-secondary pb-4 mb-4" style="border-color: rgba(255,255,255,0.1) !important;">
+            <div class="col-lg-5 pe-lg-5">
+                <h3 class="fw-bold mb-3">Artemis</h3>
+                <p class="small lh-lg mb-4">Experience exceptional travel, authentic cultural moments, and unforgettable adventures. Let your dream destination become a reality.</p>
+                <div>
+                    <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4">Explore</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="index.html" class="text-decoration-none text-muted footer-link">Home</a></li>
+                    <li><a href="destination/destination.html" class="text-decoration-none text-muted footer-link">Destination</a></li>
+                    <li><a href="tour/tour.html" class="text-decoration-none text-muted footer-link">Tour Package</a></li>
+                    <li><a href="guide/guide.html" class="text-decoration-none text-muted footer-link">Tour Guide</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4">Support</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="faq/contact.html" class="text-decoration-none text-muted footer-link">Contact Us</a></li>
+                    <li><a href="faq/faq.html" class="text-decoration-none text-muted footer-link">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 class="mb-4">Legal</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="Legal/privacy.html" class="text-decoration-none text-muted footer-link">Privacy Policy</a></li>
+                    <li><a href="Legal/term.html" class="text-decoration-none text-muted footer-link">Terms & Condition</a></li>
+                    <li><a href="Legal/cookie.html" class="text-decoration-none text-muted footer-link">Cookie Policy</a></li>
+                    <li><a href="Legal/disclamer.html" class="text-decoration-none text-muted footer-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center small">
+            &copy; 2024 SkyHorizon Travel Marketplace. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data
+            const destinations = {
+                'Asia': ['Tokyo, Japan', 'Bali, Indonesia', 'Bangkok, Thailand', 'Seoul, South Korea', 'Singapore', 'Hong Kong'],
+                'Europe': ['Paris, France', 'Rome, Italy', 'London, UK', 'Barcelona, Spain', 'Amsterdam, Netherlands', 'Prague, Czech Republic'],
+                'Africa': ['Cairo, Egypt', 'Cape Town, South Africa', 'Marrakech, Morocco', 'Nairobi, Kenya', 'Lagos, Nigeria', 'Accra, Ghana'],
+                'America': ['New York, USA', 'Los Angeles, USA', 'Toronto, Canada', 'Cancun, Mexico', 'Rio de Janeiro, Brazil', 'Buenos Aires, Argentina'],
+                'Australia': ['Sydney, Australia', 'Melbourne, Australia', 'Auckland, New Zealand', 'Fiji', 'Brisbane, Australia', 'Perth, Australia'],
+            };
+
+            const origins = {
+                'Asia': [
+                    'Jakarta, Indonesia', 'Surabaya, Indonesia', 'Bali, Indonesia', 'Bandung, Indonesia',
+                    'Kuala Lumpur, Malaysia', 'Penang, Malaysia', 'Singapore', 'Bangkok, Thailand',
+                    'Chiang Mai, Thailand', 'Manila, Philippines', 'Cebu, Philippines', 'Hanoi, Vietnam',
+                    'Ho Chi Minh City, Vietnam', 'New Delhi, India', 'Mumbai, India', 'Beijing, China',
+                    'Shanghai, China', 'Hong Kong', 'Seoul, South Korea', 'Tokyo, Japan', 'Osaka, Japan'
+                ],
+                'Europe': [
+                    'London, UK', 'Manchester, UK', 'Paris, France', 'Lyon, France', 'Berlin, Germany',
+                    'Munich, Germany', 'Madrid, Spain', 'Barcelona, Spain', 'Rome, Italy', 'Milan, Italy',
+                    'Amsterdam, Netherlands', 'Brussels, Belgium', 'Vienna, Austria', 'Zurich, Switzerland',
+                    'Stockholm, Sweden', 'Oslo, Norway', 'Copenhagen, Denmark', 'Lisbon, Portugal',
+                    'Prague, Czech Republic', 'Warsaw, Poland', 'Athens, Greece', 'Istanbul, Turkey'
+                ],
+                'Africa': [
+                    'Johannesburg, South Africa', 'Cape Town, South Africa', 'Cairo, Egypt', 'Alexandria, Egypt',
+                    'Casablanca, Morocco', 'Marrakech, Morocco', 'Nairobi, Kenya', 'Lagos, Nigeria',
+                    'Accra, Ghana', 'Addis Ababa, Ethiopia', 'Algiers, Algeria', 'Tunis, Tunisia',
+                    'Dakar, Senegal', 'Abidjan, Ivory Coast', 'Kampala, Uganda', 'Dar es Salaam, Tanzania'
+                ],
+                'America': [
+                    'New York, USA', 'Los Angeles, USA', 'Chicago, USA', 'Miami, USA', 'San Francisco, USA',
+                    'Toronto, Canada', 'Vancouver, Canada', 'Mexico City, Mexico', 'Cancun, Mexico',
+                    'Bogota, Colombia', 'Lima, Peru', 'Santiago, Chile', 'Buenos Aires, Argentina',
+                    'Sao Paulo, Brazil', 'Rio de Janeiro, Brazil', 'Panama City, Panama', 'San Jose, Costa Rica'
+                ],
+                'Australia': [
+                    'Sydney, Australia', 'Melbourne, Australia', 'Brisbane, Australia', 'Perth, Australia',
+                    'Adelaide, Australia', 'Canberra, Australia', 'Hobart, Australia', 'Auckland, New Zealand',
+                    'Wellington, New Zealand', 'Christchurch, New Zealand', 'Queenstown, New Zealand', 'Fiji'
+                ],
+            };
+
+            // Round-trip / One-way toggle
+            const tripTabs = document.querySelectorAll('.trip-tab');
+            const widgetInputs = document.querySelector('.widget-inputs-container');
+            const returnDateField = document.getElementById('returnDateField');
+            tripTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tripTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const isRoundTrip = tab.dataset.trip === 'roundtrip';
+                    widgetInputs.classList.toggle('round-trip-active', isRoundTrip);
+                    returnDateField.classList.toggle('visible', isRoundTrip);
+                });
+            });
+            // Date picker trigger - klik seluruh area kotak untuk buka kalender
+            document.querySelectorAll('.date-trigger').forEach(group => {
+                const input = group.querySelector('input[type="date"]');
+                group.addEventListener('click', (e) => {
+                    // Hindari double trigger saat input itu sendiri diklik
+                    if (e.target !== input) {
+                        try {
+                            input.showPicker();
+                        } catch (err) {
+                            input.focus();
+                        }
+                    }
+                });
+            });
+
+            // Destination Modal
+            const destinationModal = document.getElementById('destinationModal');
+            const destinationInput = document.querySelector('.destination-input');
+            const destinationModalClose = document.getElementById('destinationModalClose');
+            const destinationRegionStep = document.getElementById('destinationRegionStep');
+            const destinationStep = document.getElementById('destinationStep');
+            const destinationsGrid = document.getElementById('destinationsGrid');
+            const destinationTrigger = document.querySelector('.destination-trigger');
+            destinationTrigger.addEventListener('click', (e) => {
+                // Don't open if the user clicks somewhere else (e.g. the modal is already open)
+                if (!destinationModal.classList.contains('active')) {
+                    destinationModal.classList.add('active');
+                }
+            });
+            destinationModalClose.addEventListener('click', () => destinationModal.classList.remove('active'));
+            // Close modal when clicking outside content
+            destinationModal.addEventListener('click', (e) => {
+                if (e.target === destinationModal) {
+                    destinationModal.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('#destinationRegionStep .region-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const region = e.target.dataset.region;
+                    populateDestinations(region);
+                    destinationRegionStep.style.display = 'none';
+                    destinationStep.style.display = 'block';
+                });
+            });
+
+            document.querySelectorAll('#destinationStep .region-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const region = e.target.dataset.region;
+                    populateDestinations(region);
+                });
+            });
+
+            function populateDestinations(region) {
+                destinationsGrid.innerHTML = '';
+                destinations[region].forEach(dest => {
+                    const button = document.createElement('button');
+                    button.textContent = dest;
+                    button.classList.add('destination-option');
+                    button.addEventListener('click', () => {
+                        destinationInput.value = dest;
+                        destinationModal.classList.remove('active');
+                    });
+                    destinationsGrid.appendChild(button);
+                });
+            }
+
+            // Origin Modal
+            const originModal = document.getElementById('originModal');
+            const originInput = document.querySelector('.origin-input');
+            const originModalClose = document.getElementById('originModalClose');
+            const originRegionStep = document.getElementById('originRegionStep');
+            const originStep = document.getElementById('originStep');
+            const originsGrid = document.getElementById('originsGrid');
+            const originTrigger = document.querySelector('.origin-trigger');
+            originTrigger.addEventListener('click', (e) => {
+                if (!originModal.classList.contains('active')) {
+                    originModal.classList.add('active');
+                }
+            });
+            originModalClose.addEventListener('click', () => originModal.classList.remove('active'));
+            // Close modal when clicking outside content
+            originModal.addEventListener('click', (e) => {
+                if (e.target === originModal) {
+                    originModal.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('#originRegionStep .region-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const region = e.target.dataset.region;
+                    populateOrigins(region);
+                    originRegionStep.style.display = 'none';
+                    originStep.style.display = 'block';
+                });
+            });
+
+            document.querySelectorAll('#originStep .region-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const region = e.target.dataset.region;
+                    populateOrigins(region);
+                });
+            });
+
+            function populateOrigins(region) {
+                originsGrid.innerHTML = '';
+                origins[region].forEach(origin => {
+                    const button = document.createElement('button');
+                    button.textContent = origin;
+                    button.classList.add('destination-option');
+                    button.addEventListener('click', () => {
+                        originInput.value = origin;
+                        originModal.classList.remove('active');
+                    });
+                    originsGrid.appendChild(button);
+                });
+            }
+
+            // Heart icon toggle on Top Travel Packages
+            document.querySelectorAll('.heart-icon').forEach(heartBtn => {
+                heartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    heartBtn.classList.toggle('liked');
+                    const icon = heartBtn.querySelector('i');
+                    if (heartBtn.classList.contains('liked')) {
+                        icon.className = 'fa-solid fa-heart';
+                    } else {
+                        icon.className = 'fa-regular fa-heart';
+                    }
+                });
+            });
+
+            // Like button on testimonials
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('liked');
+                    const icon = btn.querySelector('i');
+                    if (btn.classList.contains('liked')) {
+                        icon.className = 'fa-solid fa-thumbs-up';
+                    } else {
+                        icon.className = 'fa-regular fa-thumbs-up';
+                    }
+                });
+            });
+
+
+            // ===== Atur tanggal minimal =====
+            const departureDate = document.getElementById("departureDate");
+            const returnDate = document.getElementById("returnDate");
+
+            const today = new Date().toISOString().split("T")[0];
+
+            departureDate.min = today;
+            returnDate.min = today;
+
+            departureDate.addEventListener("change", function () {
+                returnDate.min = this.value;
+
+                if (returnDate.value < this.value) {
+                    returnDate.value = "";
+                }
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

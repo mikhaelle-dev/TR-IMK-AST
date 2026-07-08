@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis - Bali Luxury Family Escape</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0A72B4;
+            --soft-bg: #f4f6fa;
+            --dark-footer: #2b3340;
+            --text-main: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+        }
+
+        /* Navbar */
+        .navbar-brand img {
+            height: 30px;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-main);
+            margin: 0 10px;
+        }
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+        }
+        .hero-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .btn-custom-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        .btn-custom-primary:hover {
+            background-color: #085a90;
+            color: white;
+        }
+
+        /* Quick Info Cards */
+        .quick-info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .quick-info-card i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            position: relative;
+        }
+        .pricing-card.premium {
+            border: 2px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(10, 114, 180, 0.15);
+            transform: scale(1.02);
+        }
+        .badge-popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #56CCF2;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .feature-list i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
+        .btn-outline-custom {
+            border: 1px solid #ddd;
+            color: var(--primary-blue);
+            border-radius: 25px;
+            width: 100%;
+            font-weight: 500;
+        }
+        .pricing-card.premium .btn-outline-custom {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            background-color: var(--soft-bg);
+            padding: 60px 0;
+        }
+        .facility-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .facility-icon {
+            background: #e3f2fd;
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Itinerary Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #ddd;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: attr(data-day);
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -15px;
+            background-color: var(--primary-blue);
+            border: 4px solid white;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .timeline-item.right::after {
+            left: -15px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--soft-bg);
+            padding: 60px 0;
+        }
+        .guide-img {
+            border-radius: 15px;
+            width: 100%;
+            max-width: 300px;
+            object-fit: cover;
+        }
+        .guide-tag {
+            color: var(--primary-blue);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .btn-outline-blue {
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            padding: 8px 30px;
+        }
+
+        /* Reviews */
+        .review-card {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+        }
+        .review-stars {
+            color: #f1c40f;
+            margin-bottom: 15px;
+        }
+        .reviewer-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-footer);
+            color: #a0aabf;
+            padding: 60px 0 20px;
+        }
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        footer a {
+            color: #a0aabf;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        footer a:hover {
+            color: white;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .timeline-item.left { text-align: left; }
+            .timeline-item::after { left: 15px; right: auto; }
+            .timeline-item.right { left: 0; }
+            .timeline-item.right::after { left: 15px; }
+            .pricing-card.premium { transform: scale(1); margin-top: 30px; margin-bottom: 30px;}
+        }
+    </style>
+    <link rel="stylesheet" href="../asset/css/common.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html"><i class="fa-solid fa-chart-pie"></i> Artemis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="../destination/destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../tour/tour.html">Tour Package</a></li>
+                <li class="nav-item"><a class="nav-link" href="../guide/guide.html">Tour Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="../faq/faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="../about-us/about.html">About Us</a></li>
+            </ul></div>
+        <div class="d-none d-lg-block"><a href="../akun/akun.html" class="profile-icon" aria-label="Profile"><i class="fa-solid fa-user"></i></a></div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-2">Bali Luxury Family Escape</h1>
+            <div class="d-flex align-items-center mb-3 text-light">
+                <i class="fa-regular fa-clock me-2"></i> <span>4 Days 3 Nights</span>
+            </div>
+            <div class="row align-items-end">
+                <div class="col-md-8">
+                    <p class="mb-0">Starting from</p>
+                    <div class="d-flex align-items-center gap-4">
+                        <span class="hero-price">IDR 4.500.000</span>
+                        <span><i class="fa-solid fa-users me-2"></i> Up to 6 People</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <button class="btn btn-custom-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="container py-5 mt-n5 position-relative z-1">
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="quick-info-card">
+                    <i class="fa-regular fa-clock"></i>
+                    <p class="text-muted mb-1 small">Duration</p>
+                    <h6 class="fw-bold mb-0">4 Days</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="quick-info-card">
+                    <i class="fa-regular fa-user"></i>
+                    <p class="text-muted mb-1 small">Participant</p>
+                    <h6 class="fw-bold mb-0">10 People</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="quick-info-card">
+                    <i class="fa-regular fa-map"></i>
+                    <p class="text-muted mb-1 small">Type Tour</p>
+                    <h6 class="fw-bold mb-0">Group</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="quick-info-card">
+                    <i class="fa-regular fa-star"></i>
+                    <p class="text-muted mb-1 small">Rating</p>
+                    <h6 class="fw-bold mb-0">4.9</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Categories -->
+    <section class="container py-5">
+        <h3 class="text-center fw-bold text-primary mb-5" style="color: var(--primary-blue) !important;">Select A Travel Category</h3>
+        <div class="row g-4 align-items-center">
+            <!-- Basic -->
+            <div class="col-md-4">
+                <div class="pricing-card">
+                    <h5 class="fw-bold">Basic Package</h5>
+                    <p class="text-muted small mb-4">An affordable option for backpackers.</p>
+                    <h4 class="text-primary mb-4" style="color: var(--primary-blue) !important;">IDR 4.500.000</h4>
+                    <ul class="feature-list">
+                        <li><i class="fa-regular fa-circle-check"></i> 3-Star Hotel</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Breakfast Included</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Tourist Attraction Tickets</li>
+                    </ul>
+                    <button class="btn btn-outline-custom mt-4">Select</button>
+                </div>
+            </div>
+            <!-- Premium (Popular) -->
+            <div class="col-md-4">
+                <div class="pricing-card premium">
+                    <span class="badge-popular">MOST POPULAR</span>
+                    <h5 class="fw-bold">Premium Package</h5>
+                    <p class="text-muted small mb-4">The best and most comfortable experience.</p>
+                    <h4 class="text-primary mb-4" style="color: var(--primary-blue) !important;">IDR 6.200.000</h4>
+                    <ul class="feature-list">
+                        <li><i class="fa-regular fa-circle-check"></i> 4-Star Hotel</li>
+                        <li><i class="fa-regular fa-circle-check"></i> 3 Meals per Day</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Tickets & Fast Track Access</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Drone Photography & Videography</li>
+                    </ul>
+                    <button class="btn btn-outline-custom mt-4">Select</button>
+                </div>
+            </div>
+            <!-- Luxury -->
+            <div class="col-md-4">
+                <div class="pricing-card">
+                    <h5 class="fw-bold">Luxury Package</h5>
+                    <p class="text-muted small mb-4">Complete privacy and luxury.</p>
+                    <h4 class="text-primary mb-4" style="color: var(--primary-blue) !important;">IDR 8.900.000</h4>
+                    <ul class="feature-list">
+                        <li><i class="fa-regular fa-circle-check"></i> Private Villa & Pool</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Fine Dining</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Private Car & Driver</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Dedicated Photographer</li>
+                    </ul>
+                    <button class="btn btn-outline-custom mt-4">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Provided -->
+    <section class="facilities-section">
+        <div class="container">
+            <h5 class="fw-bold mb-4">Facilities Provided</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-hotel"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">4-Star Hotel</h6>
+                            <p class="text-muted small mb-0">Stay in a strategic location at Seminyak or Ubud.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-car"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Air-Conditioned Transportation</h6>
+                            <p class="text-muted small mb-0">Modern vehicles equipped with air conditioning for a comfortable journey.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-ticket"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Attraction Tickets</h6>
+                            <p class="text-muted small mb-0">All admission tickets to major destinations are included.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Professional Tour Guide</h6>
+                            <p class="text-muted small mb-0">Licensed, friendly, and knowledgeable guides.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-camera"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Documentation</h6>
+                            <p class="text-muted small mb-0">Photos and videos throughout the trip to capture your memories.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Travel Insurance</h6>
+                            <p class="text-muted small mb-0">Comprehensive coverage throughout the tour program.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Itinerary -->
+    <section class="container py-5">
+        <h3 class="text-center fw-bold mb-5">Travel Itinerary</h3>
+        <div class="timeline">
+            <div class="timeline-item left" data-day="1">
+                <p class="text-muted small mb-0">Day 1</p>
+                <h6 class="fw-bold">Arrival & Tanah Lot Sunset</h6>
+                <p class="text-muted small">Pick up from Ngurah Rai International Airport, enjoy a local lunch, and witness the iconic sunset at Tanah Lot Temple.</p>
+            </div>
+            <div class="timeline-item right" data-day="2">
+                <p class="text-muted small mb-0">Day 2</p>
+                <h6 class="fw-bold">Nusa Penida Day Trip</h6>
+                <p class="text-muted small">Cross to Nusa Penida by fast boat. Visit Kelingking Beach and Broken Beach, then enjoy snorkeling at Crystal Bay.</p>
+            </div>
+            <div class="timeline-item left" data-day="3">
+                <p class="text-muted small mb-0">Day 3</p>
+                <h6 class="fw-bold">Ubud Culture & Tegalalang</h6>
+                <p class="text-muted small">Explore the stunning rice terraces of Tegalalang Rice Terrace, experience the famous Bali Swing, and visit Sacred Monkey Forest Sanctuary and the Ubud Art Market.</p>
+            </div>
+            <div class="timeline-item right" data-day="4">
+                <p class="text-muted small mb-0">Day 4</p>
+                <h6 class="fw-bold">Shopping & Departure</h6>
+                <p class="text-muted small">Shop for Balinese souvenirs at Krisna or Erlangga, enjoy a relaxing lunch in Jimbaran, and transfer back to the airport for your departure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation Our Guide -->
+    <section class="guide-section">
+        <div class="container text-center text-md-start">
+            <h3 class="fw-bold mb-5 text-center">Recommendation Our Guide</h3>
+            <div class="row align-items-center justify-content-center bg-white p-4 p-md-5 rounded shadow-sm mx-2 mx-md-5">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <!-- Placeholder image for Souta -->
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Guide Souta" class="guide-img">
+                </div>
+                <div class="col-md-8 px-md-4">
+                    <p class="guide-tag mb-1">PROGRAM EXPERIENCED</p>
+                    <h3 class="fw-bold">Meet your host, Souta</h3>
+                    <div class="text-warning mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span class="text-muted small ms-2 text-dark">5.0 (21 Reviews)</span>
+                    </div>
+                    <p class="text-muted small mb-4">
+                        With over 10 years of experience navigating the hidden corners of Bali and beyond, Souta specializes in outdoor photography and cultural immersions. He speaks fluent English, Japanese, and Indonesian.
+                    </p>
+                    <div class="d-flex gap-4 mb-4 justify-content-center justify-content-md-start">
+                        <div>
+                            <p class="text-muted small mb-0">Languages</p>
+                            <h6 class="fw-bold fs-6">English, Japanese, ID, Chinese</h6>
+                        </div>
+                        <div>
+                            <p class="text-muted small mb-0">Experience</p>
+                            <h6 class="fw-bold fs-6">10+ Years Professional</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-blue">More Guide</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What They Say -->
+    <section class="container py-5">
+        <h3 class="text-center fw-bold mb-5">What They Say?</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-muted small fst-italic flex-grow-1">"Our trip experience was amazing! The tour guide was incredibly helpful and knew the best photo spots away from the crowds. Highly recommended!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="reviewer-img" alt="Asep">
+                        <div>
+                            <h6 class="fw-bold mb-0">Asep</h6>
+                            <p class="text-muted small mb-0">Solo Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-muted small fst-italic flex-grow-1">"The Nusa Penida tour was absolutely stunning. The transportation and private villa recommended our expectations and felt truly premium. Wishing South/East continued success!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="reviewer-img" alt="Bukit Birar">
+                        <div>
+                            <h6 class="fw-bold mb-0">Bukit Birar</h6>
+                            <p class="text-muted small mb-0">Bali Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-muted small fst-italic flex-grow-1">"Booking through this website was easy and transparent. There were no hidden fees, and the video documentation was fantastic!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" class="reviewer-img" alt="Naib">
+                        <div>
+                            <h6 class="fw-bold mb-0">Naib</h6>
+                            <p class="text-muted small mb-0">Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <button class="btn btn-outline-blue">More Review</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold d-flex align-items-center text-white">
+                        <i class="fa-solid fa-location-arrow me-2"></i>Artemis
+                    </h5>
+                    <p class="small mt-3 pe-4">Experience exceptional travel, authentic cultural immersions, and unforgettable adventures. Let your dream destination become a reality.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Explore</h5>
+                    <a href="../index.html">Home</a>
+                    <a href="../destination/destination.html">Destination</a>
+                    <a href="../tour/tour.html">Tour Package</a>
+                    <a href="../guide/guide.html">Tour Guide</a>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Support</h5>
+                    <a href="../faq/contact.html">Contact Us</a>
+                    <a href="../faq/faq.html">FAQ</a>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h5>Legal</h5>
+                    <a href="../Legal/privacy.html">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="../Legal/cookie.html">Cookie Policy</a>
+                    <a href="../Legal/disclamer.html">Disclaimer</a>
+                </div>
+            </div>
+            <hr class="mt-4 border-secondary">
+            <div class="text-center small mt-4">
+                Â© 2024 Skytianton Travel Marketplace. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

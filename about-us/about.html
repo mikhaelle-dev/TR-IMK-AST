@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis - About Us</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --accent-blue: #38bdf8;
+            --teal-dark: #0c5974;
+            --footer-bg: #2b3543;
+            --bg-light: #f4f8fb;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: white;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; }
+
+        /* --- Navbar --- */
+        .navbar-brand .logo-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 35px; height: 35px;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(-10deg) scale(1.05);
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue) !important;
+            border-bottom-color: transparent;
+        }
+
+        /* --- Hero Section --- */
+        .hero-about {
+            height: 450px;
+            background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%), 
+                        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 5%) scale(1.1); }
+        }
+        .hero-title {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Our Story Section --- */
+        .story-badge {
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .story-badge::before {
+            content: '';
+            width: 40px; height: 3px;
+            background-color: var(--accent-blue);
+            display: inline-block;
+            animation: expandLine 1s ease forwards;
+        }
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 40px; }
+        }
+        
+        .collage-container {
+            position: relative;
+            height: 450px;
+            width: 100%;
+        }
+        .collage-img-1,
+        .collage-img-2,
+        .collage-img-3 {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .collage-img-1:hover,
+        .collage-img-2:hover,
+        .collage-img-3:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .collage-img-1 {
+            position: absolute; right: 0; top: 10%;
+            width: 65%; height: 250px;
+            object-fit: cover; border-radius: 20px;
+            z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .collage-img-2 {
+            position: absolute; left: 0; bottom: 0;
+            width: 50%; height: 200px;
+            object-fit: cover; border-radius: 20px;
+            z-index: 3; border: 6px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .collage-img-3 {
+            position: absolute; left: 10%; top: 0;
+            width: 35%; height: 160px;
+            object-fit: cover; border-radius: 20px;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .stat-number:hover {
+            transform: scale(1.1);
+            color: var(--primary-blue);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Our Mission Section --- */
+        .mission-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #f0f4f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        .mission-card:hover::before {
+            left: 100%;
+        }
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--accent-blue);
+        }
+        /* HAPUS efek pada icon */
+        .mission-icon {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .mission-card-blue {
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .mission-card-blue::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        .mission-card-blue:hover::after {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+        .mission-card-blue:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.35);
+        }
+
+        .mission-img-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            background: #e2e8f0;
+            min-height: 0;
+            position: relative;
+        }
+        .mission-img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .mission-img-wrapper:hover::after {
+            opacity: 1;
+        }
+        .mission-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mission-img-wrapper:hover .mission-img {
+            transform: scale(1.08);
+        }
+
+        /* --- Our Team Section --- */
+        .team-card {
+            position: relative;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 16px;
+            overflow: visible;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        .team-card:hover .team-img-wrapper::before,
+        .team-card:hover .team-img-wrapper::after {
+            border-color: var(--accent-blue);
+        }
+        .team-img-wrapper {
+            position: relative;
+            padding: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .team-img-wrapper::before {
+            content: ''; position: absolute;
+            top: 0; left: 0;
+            width: 40px; height: 40px;
+            border-top: 5px solid #dbeafe;
+            border-left: 5px solid #dbeafe;
+            border-top-left-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .team-img-wrapper::after {
+            content: ''; position: absolute;
+            bottom: 0; right: 0;
+            width: 40px; height: 40px;
+            border-bottom: 5px solid #dbeafe;
+            border-right: 5px solid #dbeafe;
+            border-bottom-right-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover .team-img-wrapper::before {
+            border-color: var(--accent-blue);
+            transform: translate(-4px, -4px);
+        }
+        .team-card:hover .team-img-wrapper::after {
+            border-color: var(--accent-blue);
+            transform: translate(4px, 4px);
+        }
+        .team-img {
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            object-fit: cover;
+            border-radius: 16px;
+            background-color: #f1f5f9;
+            transition: all 0.4s ease;
+        }
+        .team-card:hover .team-img {
+            filter: brightness(1.05) saturate(1.1);
+        }
+        .team-card h5 {
+            transition: color 0.3s ease;
+        }
+        .team-card:hover h5 {
+            color: var(--primary-blue);
+        }
+        .team-img-wrapper {
+            overflow: hidden;
+        }
+        .team-hover-info {
+            display: none;
+        }
+        .team-hover-info h6 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+        }
+        .team-hover-info p {
+            font-size: 0.78rem;
+            line-height: 1.55;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+        .team-hover-info span {
+            font-size: 0.72rem;
+            color: #64748b;
+            display: block;
+            margin-top: 4px;
+        }
+        .team-popup-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 24px;
+        }
+        .team-popup-modal.active {
+            display: flex;
+        }
+        .team-popup-content {
+            position: relative;
+            width: min(700px, 92vw);
+            max-height: 80vh;
+            overflow-y: auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .team-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: 0;
+            background: none;
+            color: #999999;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .team-popup-close:hover {
+            color: #333333;
+        }
+        .team-popup-body {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 28px;
+            align-items: center;
+        }
+        .team-popup-body img {
+            width: 180px;
+            aspect-ratio: 1 / 1.1;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        .team-popup-role {
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .team-popup-copy {
+            color: #475569;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+        .team-popup-meta span {
+            display: block;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+
+        /* --- CTA Banner --- */
+        .cta-banner {
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            border-radius: 24px;
+            padding: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: ctaPulse 6s ease-in-out infinite alternate;
+        }
+        @keyframes ctaPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.2) rotate(10deg); }
+        }
+        .cta-banner:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.3);
+        }
+        .cta-collage {
+            position: relative;
+            height: 250px;
+        }
+        .cta-img-1 {
+            position: absolute; right: 0; top: 0;
+            width: 60%; height: 160px;
+            object-fit: cover; border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 2;
+            transition: all 0.4s ease;
+        }
+        .cta-img-1:hover {
+            transform: scale(1.05) rotate(-2deg);
+            z-index: 5;
+        }
+        .cta-img-2 {
+            position: absolute; left: 10%; bottom: 0;
+            width: 60%; height: 160px;
+            object-fit: cover; border-radius: 16px;
+            border: 4px solid rgba(255,255,255,0.3); z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .cta-img-2:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 5;
+        }
+        .btn-outline-white {
+            border: 2px solid white;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-outline-white::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+        .btn-outline-white:hover::before {
+            left: 0;
+        }
+        .btn-outline-white:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+        }
+
+        /* --- Footer --- */
+        footer { background-color: var(--footer-bg); color: #9ca3af; }
+        footer h5 { color: white; font-weight: 700; }
+        .social-circle {
+            width: 40px; height: 40px; background: rgba(255,255,255,0.1);
+            color: #d1d5db; display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin-right: 10px; cursor: pointer; transition: all 0.3s ease;
+        }
+        .social-circle:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,136,255,0.3);
+        }
+        .footer-link { 
+            text-decoration: none; 
+            color: #9ca3af; 
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 2.5rem; }
+            .collage-container { height: 300px; }
+            .mission-img-wrapper { min-height: 250px; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-about { height: 350px; }
+            .collage-container { height: 250px; }
+            .collage-img-1 { width: 70%; height: 150px; }
+            .collage-img-2 { width: 60%; height: 140px; }
+            .collage-img-3 { width: 45%; height: 100px; }
+            .mission-img-wrapper { min-height: 200px; }
+            .cta-banner { padding: 30px; }
+            .cta-collage { height: 180px; }
+            .cta-img-1, .cta-img-2 { height: 120px; }
+            .team-popup-content { padding: 32px 24px; }
+            .team-popup-body {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .team-popup-body img {
+                margin: 0 auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../asset/css/common.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html"><i class="fa-solid fa-chart-pie"></i> Artemis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="../destination/destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="../tour/tour.html">Tour Package</a></li>
+                <li class="nav-item"><a class="nav-link" href="../guide/guide.html">Tour Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="../faq/faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../about-us/about.html">About Us</a></li>
+            </ul></div>
+        <div class="d-none d-lg-block"><a href="../akun/akun.html" class="profile-icon" aria-label="Profile"><i class="fa-solid fa-user"></i></a></div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero-about mb-5">
+        <div class="container">
+            <h1 class="hero-title">Crafting Journeys Beyond the Horizon</h1>
+            <p class="hero-subtitle">Artemis isn't just a travel company. We are architects of wonder, dedicated to unveiling the world's most remote treasures through sustainable, premier adventure.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <div class="container py-5 mb-5" style="background: #E7EEFF; border-radius: 24px;">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-5 mb-lg-0 pe-lg-5">
+                <!-- DIUBAH: story-badge menjadi h1 dengan ukuran sama seperti Our Mission -->
+                <h1 class="fw-bold mb-3" style="color: var(--accent-blue); font-size: 2.5rem;">Our Story</h1>
+                <h2 class="fw-bold mb-4" style="color: var(--text-dark);">Born from a Single Compass and an Endless Horizon</h2>
+                <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                    Started by a small group of travel fanatics and oceanographers in 2013, Artemis was founded on a simple realization: the most transformative experiences lie off the beaten path, out in the elements, between destinations.
+                </p>
+                <p class="text-muted mb-5" style="font-size: 0.95rem; line-height: 1.6;">
+                    We began by organizing boutique expeditions to the Andes, focusing on immersion rather than just observation. Today, we lead over 200 annual journeys across seven continents, maintaining our commitment to small group intimacy and deep local connection.
+                </p>
+                
+                <div class="d-flex gap-5">
+                    <div class="scroll-reveal">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="scroll-reveal" style="transition-delay: 0.2s;">
+                        <div class="stat-number">890k</div>
+                        <div class="stat-label">Travelers Served</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 offset-lg-1">
+                <div class="collage-container">
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=800&auto=format&fit=crop" class="collage-img-1" alt="Camping">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop" class="collage-img-2" alt="Climbing">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop" class="collage-img-3" alt="Mountains">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Mission Section -->
+    <div class="mission-bg" style="background-color: #E7EEFF;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bold mb-2" style="color: var(--accent-blue); font-size: 2.5rem;">Our Mission</h1>
+                <h2 class="fw-bold" style="color: var(--text-dark);">The Pillars Of Our Exploration</h2>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column gap-4 h-100">
+                        <div class="mission-card h-50 scroll-reveal">
+                            <i class="fas fa-leaf mission-icon"></i>
+                            <h4 class="fw-bold mb-3">Radical Sustainability</h4>
+                            <p class="text-muted m-0">We began by organizing boutique expeditions to the Andes, focusing on immersion rather than just observation.</p>
+                        </div>
+                        <div class="mission-card h-50 scroll-reveal" style="transition-delay: 0.15s;">
+                            <i class="fas fa-shield-alt mission-icon"></i>
+                            <h4 class="fw-bold mb-3">Safety First</h4>
+                            <p class="text-muted m-0">We began by organizing boutique expeditions to the Andes, focusing on immersion rather than just observation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column gap-4 h-100">
+                        <div class="mission-card-blue shadow-sm scroll-reveal" style="flex: 1; transition-delay: 0.3s;">
+                            <h4 class="fw-bold mb-3">Unrivaled Access</h4>
+                            <p class="m-0" style="color: rgba(255,255,255,0.9);">We are a travel platform dedicated to helping people discover amazing destinations and book the perfect tour package. With reliable services, competitive prices, and trusted partners, we make every journey simple, safe, and memorable.</p>
+                        </div>
+                        <div class="mission-img-wrapper scroll-reveal" style="flex: 1; min-height: 0; transition-delay: 0.45s;">
+                            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?q=80&w=800&auto=format&fit=crop" class="mission-img" alt="Snow explorers">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="container py-5 mt-4 mb-5">
+        <h4 class="fw-bold mb-2" style="color: var(--accent-blue);">Our Team</h4>
+        <h2 class="fw-bold mb-5" style="color: var(--text-dark);">Lead By Experience, Fueled by Passion</h2>
+
+        <div class="row g-4 mb-4">
+            <div class="col-lg-4 col-md-6 scroll-reveal">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Soo-yeon Lee">
+                        <div class="team-hover-info">
+                            <h6>Itinerary Specialist</h6>
+                            <p>Designs custom travel routes across Asia-Pacific with a focus on cultural immersion and hidden gems.</p>
+                            <span>8+ years experience Â· English, Korean</span>
+                            <span>120+ curated itineraries</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Soo-yeon Lee</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Itinerary Specialist</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-reveal" style="transition-delay: 0.1s;">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Bum-hyun Lim">
+                        <div class="team-hover-info">
+                            <h6>Reservation Manager</h6>
+                            <p>Manages bookings, payments, and logistics to ensure every reservation runs smoothly from start to finish.</p>
+                            <span>6+ years experience Â· English, Korean</span>
+                            <span>Expert in group & private tours</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Bum-hyun Lim</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Reservation Manager</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-reveal" style="transition-delay: 0.2s;">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Soo-bin Han">
+                        <div class="team-hover-info">
+                            <h6>Guest Relations Officer</h6>
+                            <p>Dedicated to guest satisfaction, handling inquiries, feedback, and on-trip support with warmth and care.</p>
+                            <span>5+ years experience Â· English, Korean</span>
+                            <span>98% guest satisfaction rate</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Soo-bin Han</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Guest Relations Officer</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-reveal" style="transition-delay: 0.3s;">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Oliver Bennett">
+                        <div class="team-hover-info">
+                            <h6>Founder & Head Explorer</h6>
+                            <p>Founded Artemis in 2013 with a vision to create transformative off-the-beaten-path adventures worldwide.</p>
+                            <span>15+ years experience Â· English, Spanish</span>
+                            <span>Led 200+ expeditions across 7 continents</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Oliver Bennett</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Founder & Head Explorer</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-reveal" style="transition-delay: 0.4s;">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Lucas Martin">
+                        <div class="team-hover-info">
+                            <h6>Travel Consultant</h6>
+                            <p>Helps travelers find the perfect adventure package tailored to their budget, interests, and travel style.</p>
+                            <span>7+ years experience Â· English, French</span>
+                            <span>Specialist in adventure & eco-tourism</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Lucas Martin</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Travel Consultant</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-reveal" style="transition-delay: 0.5s;">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop" class="team-img" alt="Mia Collins">
+                        <div class="team-hover-info">
+                            <h6>Tour Coordinator</h6>
+                            <p>Coordinates on-ground operations, guides, and schedules to deliver seamless travel experiences.</p>
+                            <span>4+ years experience Â· English, Indonesian</span>
+                            <span>Managed 80+ successful tour departures</span>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-1 mt-2">Mia Collins</h5>
+                    <p class="small m-0" style="color: var(--accent-blue);">Tour Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-popup-modal" id="teamPopupModal" aria-hidden="true">
+        <div class="team-popup-content" role="dialog" aria-modal="true" aria-labelledby="teamPopupName">
+            <button class="team-popup-close" type="button" id="teamPopupClose">&times;</button>
+            <div class="team-popup-body">
+                <img id="teamPopupImg" src="" alt="">
+                <div>
+                    <h3 class="fw-bold mb-1" id="teamPopupName"></h3>
+                    <div class="team-popup-role" id="teamPopupRole"></div>
+                    <p class="team-popup-copy" id="teamPopupCopy"></p>
+                    <div class="team-popup-meta" id="teamPopupMeta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Banner Section -->
+    <div class="container mb-5 pb-5">
+        <div class="cta-banner scroll-reveal">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0 pe-lg-5">
+                    <h1 class="fw-bold mb-3">Ready to write<br>your own chapter?</h1>
+                    <p class="mb-4" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.5; max-width: 500px;">
+                        We began by organizing boutique expeditions to the Andes, focusing on immersion rather than just observation.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="../tour/tour.html" class="btn btn-outline-white">Browse Expedition</a>
+                        <a href="../guide/guide.html" class="btn btn-outline-white">Contact An Expert</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="cta-collage">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600&auto=format&fit=crop" class="cta-img-1" alt="Hikers">
+                        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600&auto=format&fit=crop" class="cta-img-2" alt="Zipline">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+        <div class="container mt-4">
+            <div class="row gy-4 border-bottom border-secondary pb-4 mb-4" style="border-color: rgba(255,255,255,0.1) !important;">
+                <div class="col-lg-5 pe-lg-5">
+                    <h3 class="fw-bold mb-3">Artemis</h3>
+                    <p class="small lh-lg mb-4">Experience exceptional travel, authentic cultural moments, and unforgettable adventures. Let your dream destination become a reality.</p>
+                    <div>
+                        <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Explore</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../index.html" class="text-decoration-none text-muted footer-link">Home</a></li>
+                        <li><a href="../destination/destination.html" class="text-decoration-none text-muted footer-link">Destination</a></li>
+                        <li><a href="../tour/tour.html" class="text-decoration-none text-muted footer-link">Tour Package</a></li>
+                        <li><a href="../guide/guide.html" class="text-decoration-none text-muted footer-link">Tour Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Support</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../faq/contact.html" class="text-decoration-none text-muted footer-link">Contact Us</a></li>
+                        <li><a href="../faq/faq.html" class="text-decoration-none text-muted footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Legal</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../Legal/privacy.html" class="text-decoration-none text-muted footer-link">Privacy Policy</a></li>
+                        <li><a href="../Legal/term.html" class="text-decoration-none text-muted footer-link">Terms & Condition</a></li>
+                        <li><a href="../Legal/cookie.html" class="text-decoration-none text-muted footer-link">Cookie Policy</a></li>
+                        <li><a href="../Legal/disclamer.html" class="text-decoration-none text-muted footer-link">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center small">
+                &copy; 2024 SkyHorizon Travel Marketplace. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.08)';
+            } else {
+                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + '+';
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats become visible
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const text = el.textContent;
+                    const num = parseInt(text);
+                    if (!isNaN(num)) {
+                        animateCounter(el, num);
+                    }
+                    statObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            statObserver.observe(el);
+        });
+
+        const teamModal = document.getElementById('teamPopupModal');
+        const teamClose = document.getElementById('teamPopupClose');
+        const teamPopupImg = document.getElementById('teamPopupImg');
+        const teamPopupName = document.getElementById('teamPopupName');
+        const teamPopupRole = document.getElementById('teamPopupRole');
+        const teamPopupCopy = document.getElementById('teamPopupCopy');
+        const teamPopupMeta = document.getElementById('teamPopupMeta');
+
+        function closeTeamModal() {
+            teamModal.classList.remove('active');
+            teamModal.setAttribute('aria-hidden', 'true');
+        }
+
+        document.querySelectorAll('.team-card').forEach((card) => {
+            card.addEventListener('click', () => {
+                const image = card.querySelector('.team-img');
+                const details = card.querySelector('.team-hover-info');
+                const role = details.querySelector('h6');
+                const copy = details.querySelector('p');
+
+                teamPopupImg.src = image.src;
+                teamPopupImg.alt = image.alt;
+                teamPopupName.textContent = card.querySelector('h5').textContent.trim();
+                teamPopupRole.textContent = role.textContent.trim();
+                teamPopupCopy.textContent = copy.textContent.trim();
+                teamPopupMeta.innerHTML = Array.from(details.querySelectorAll('span'))
+                    .map((item) => `<span>${item.textContent.trim()}</span>`)
+                    .join('');
+
+                teamModal.classList.add('active');
+                teamModal.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        teamClose.addEventListener('click', closeTeamModal);
+        teamModal.addEventListener('click', (event) => {
+            if (event.target === teamModal) {
+                closeTeamModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && teamModal.classList.contains('active')) {
+                closeTeamModal();
+            }
+        });
+    </script>
+</body>
+</html>

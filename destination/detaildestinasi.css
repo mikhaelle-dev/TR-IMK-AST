@@ -1,0 +1,179 @@
+﻿:root {
+            --primary-blue: #0088ff;
+            --accent-blue: #38bdf8;
+            --teal-dark: #0c5974;
+            --footer-bg: #2b3543;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: white;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; }
+
+        /* --- Navbar --- */
+        .navbar-brand .logo-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 35px; height: 35px;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue) !important;
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* --- Header Details --- */
+        .back-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-dark);
+            transition: 0.2s;
+        }
+        .back-btn:hover { background-color: #f1f5f9; color: var(--primary-blue); }
+        
+        .badge-dark-custom {
+            background-color: #000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* --- Gallery Grid --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .img-main { grid-column: 1 / 2; grid-row: 1 / 3; }
+
+        /* Responsif untuk Gallery di Mobile */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 150px 150px;
+            }
+            .img-main { grid-column: 1 / 3; grid-row: 1; height: 300px; }
+        }
+
+        /* --- Info Features --- */
+        .feature-icon-box {
+            width: 50px; height: 50px;
+            border: 1px solid #bae6fd;
+            background-color: #f0f9ff;
+            color: var(--accent-blue);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        /* --- Reviews Section --- */
+        .rating-number { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+        .rating-stars { color: #000; font-size: 1.2rem; margin-top: 5px; }
+        
+        .review-progress-row {
+            display: flex; align-items: center; margin-bottom: 8px;
+        }
+        .review-progress-label {
+            width: 110px; font-size: 0.75rem; font-weight: 700; color: var(--text-dark);
+        }
+        .progress-custom {
+            height: 6px; border-radius: 10px; flex-grow: 1; background-color: #e2e8f0;
+        }
+        .progress-custom .progress-bar { background-color: #000; border-radius: 10px; }
+        .review-progress-score {
+            width: 40px; text-align: right; font-size: 0.75rem; font-weight: 700;
+        }
+
+        /* Review Item */
+        .reviewer-avatar {
+            width: 45px; height: 45px;
+            border-radius: 50%; color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem;
+        }
+        .review-thumb {
+            width: 80px; height: 80px;
+            object-fit: cover; border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        /* --- Booking Sidebar --- */
+        .booking-card {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            /* Membuatnya sticky saat discroll */
+            position: sticky;
+            top: 100px;
+        }
+
+        .booking-input-group {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .booking-input-group i { color: var(--text-dark); width: 25px; font-size: 1.1rem; }
+        .booking-input-group select, .booking-input-group input {
+            border: none; background: transparent; flex-grow: 1;
+            font-weight: 600; color: var(--text-dark); outline: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-check-avail {
+            background-color: var(--accent-blue);
+            color: white; font-weight: 700;
+            border: none; border-radius: 50px;
+            padding: 12px; width: 100%; margin-top: 10px; transition: 0.3s;
+        }
+        .btn-check-avail:hover { background-color: #0ea5e9; color: white; }
+
+        .perk-icon { color: #10b981; font-size: 1.1rem; margin-top: 3px; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--footer-bg); color: #9ca3af; margin-top: 80px;}
+        footer h5 { color: white; font-weight: 700; }
+        .social-circle {
+            width: 40px; height: 40px; background: rgba(255,255,255,0.1);
+            color: #d1d5db; display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin-right: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .social-circle:hover { background: var(--primary-blue); color: white; }
+        .footer-link { text-decoration: none; color: #9ca3af; transition: 0.3s; }
+        .footer-link:hover { color: white; }
+

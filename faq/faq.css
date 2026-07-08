@@ -1,0 +1,465 @@
+﻿:root {
+    --primary-blue: #0088ff;
+    --accent-blue: #38bdf8;
+    /* Warna biru muda terang */
+    --teal-dark: #0c5974;
+    --footer-bg: #2b3543;
+    --bg-light: #f8fcfc;
+    --faq-bg: #e2e8f0;
+    /* Warna abu-abu kotak FAQ */
+    --light-blue-bg: #e0f2fe;
+    /* Background kotak support & subscribe */
+    --text-dark: #1e293b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: white;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* --- Full-bleed helper: bikin section mepet ke tepi layar tapi tetep ada padding responsif --- */
+.full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: clamp(12px, 4vw, 60px);
+    padding-right: clamp(12px, 4vw, 60px);
+    box-sizing: border-box;
+}
+
+/* --- Navbar --- */
+.navbar-brand .logo-icon {
+    background-color: var(--primary-blue);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #333 !important;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-blue) !important;
+    border-bottom-color: var(--primary-blue);
+}
+
+/* --- Hero Section --- */
+.hero-faq {
+    height: 400px;
+    /* Efek gradien putih di bagian bawah agar menyatu dengan background web */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 1) 100%),
+        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop') center 30%/cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.hero-title {
+    color: var(--teal-dark);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    color: #64748b;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Custom Accordion (FAQ Boxes) --- */
+.custom-accordion .accordion-item {
+    border: none;
+    background-color: var(--faq-bg);
+    border-radius: 12px !important;
+    margin-bottom: 15px;
+    overflow: hidden;
+    /* Menjaga border radius */
+}
+
+.custom-accordion .accordion-button {
+    background-color: transparent;
+    font-weight: 700;
+    color: var(--text-dark);
+    box-shadow: none;
+    padding: 18px 25px;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    color: var(--text-dark);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.custom-accordion .accordion-body {
+    padding: 0 25px 20px 25px;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- Section Styling --- */
+.section-icon {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-right: 15px;
+}
+
+.faq-section-title {
+    color: var(--teal-dark);
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+.faq-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Overlapping Images (Payment Section) */
+.overlap-image-container {
+    position: relative;
+    height: 220px;
+}
+
+.overlap-img-1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 65%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.overlap-img-2 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 65%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    z-index: 2;
+    border: 6px solid white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Support & Community Cards --- */
+.light-blue-card {
+    background-color: var(--light-blue-bg);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.light-blue-card h4 {
+    color: var(--teal-dark);
+}
+
+.light-blue-card h2 {
+    color: var(--accent-blue);
+}
+
+.btn-accent {
+    background-color: var(--accent-blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-accent:hover {
+    background-color: #0284c7;
+    color: white;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg);
+    color: #9ca3af;
+    margin-top: 50px;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-circle:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #9ca3af;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+/* --- Subscribe Success Popup --- */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 16px;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.subscribe-modal {
+    background: #ffffff;
+    border: 1px solid #e2ecf5;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+    text-align: center;
+    animation: subscribePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes subscribePop {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.check-badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px auto 18px;
+    color: #10b981;
+    font-size: 32px;
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.subscribe-modal h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.subscribe-modal p {
+    color: #64748b;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.subscribe-close-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: 1.5px solid #e2ecf5;
+    background: transparent;
+    color: #3d4f60;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.subscribe-close-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background: rgba(0, 136, 255, 0.08);
+}
+
+.email-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.15) !important;
+}
+
+.email-error-msg {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.email-error-msg.show {
+    display: block;
+}
+
+.subscribe-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #ffffff;
+    border: 1px solid #e2ecf5;
+    color: var(--text-dark);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1100;
+    box-shadow: 0 8px 40px rgba(0, 136, 255, 0.10);
+    font-weight: 500;
+}
+
+.subscribe-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* --- Smooth Animations (About Us style) --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-faq .hero-title {
+    animation: fadeInUp 1s ease;
+}
+
+.hero-faq .hero-subtitle {
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.custom-accordion .accordion-item {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-accordion .accordion-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.faq-image {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 40px rgba(0, 136, 255, 0.12);
+}
+
+.overlap-img-1,
+.overlap-img-2 {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlap-img-1:hover,
+.overlap-img-2:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.light-blue-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-blue-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(56, 189, 248, 0.15);
+}
+
+.section-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-section-title {
+    transition: color 0.3s ease;
+}
+
+.row.align-items-center:hover .section-icon {
+    transform: scale(1.1);
+}
+
+.btn-accent {
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+}
+
+.social-circle {
+    transition: all 0.3s ease;
+}
+
+.social-circle:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 136, 255, 0.3);
+}
+
+.footer-link {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    transform: translateX(5px);
+}

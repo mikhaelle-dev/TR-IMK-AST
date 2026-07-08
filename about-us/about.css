@@ -1,0 +1,335 @@
+﻿:root {
+    --primary-blue: #0088ff;
+    --accent-blue: #38bdf8;
+    --teal-dark: #0c5974;
+    --footer-bg: #2b3543;
+    --bg-light: #f4f8fb;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: white;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Navbar --- */
+.navbar-brand .logo-icon {
+    background-color: var(--primary-blue);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #333 !important;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-blue) !important;
+    border-bottom-color: var(--primary-blue);
+}
+
+/* --- Hero Section --- */
+.hero-about {
+    height: 450px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%),
+        url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=2000&auto=format&fit=crop') center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+}
+
+.hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    max-width: 600px;
+    line-height: 1.6;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Our Story Section --- */
+.story-badge {
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-badge::before {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-blue);
+    display: inline-block;
+}
+
+.collage-container {
+    position: relative;
+    height: 450px;
+    width: 100%;
+}
+
+.collage-img-1 {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 65%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.collage-img-2 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 3;
+    border: 6px solid white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.collage-img-3 {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    width: 35%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Our Mission Section --- */
+.mission-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border: 1px solid #f0f4f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.mission-card-blue {
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.25);
+}
+
+.mission-img-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    background: #e2e8f0;
+    min-height: 0; /* Penting agar flex bisa bekerja */
+}
+.mission-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.mission-img:hover {
+    transform: scale(1.03);
+}
+
+.mission-icon {
+    color: var(--accent-blue);
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+/* --- Our Team Section --- */
+.team-card {
+    text-align: center;
+}
+
+/* Dekorasi bracket sudut biru muda */
+.team-img-wrapper {
+    position: relative;
+    padding: 12px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.team-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-top: 5px solid #dbeafe;
+    border-left: 5px solid #dbeafe;
+    border-top-left-radius: 20px;
+}
+
+.team-img-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom: 5px solid #dbeafe;
+    border-right: 5px solid #dbeafe;
+    border-bottom-right-radius: 20px;
+}
+
+.team-img {
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    object-fit: cover;
+    border-radius: 16px;
+    background-color: #f1f5f9;
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+    border-radius: 24px;
+    padding: 50px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-collage {
+    position: relative;
+    height: 250px;
+}
+
+.cta-img-1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.cta-img-2 {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 60%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 4px solid var(--accent-blue);
+    z-index: 1;
+}
+
+.btn-outline-white {
+    border: 2px solid white;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: var(--accent-blue);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg);
+    color: #9ca3af;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-circle:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #9ca3af;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: white;
+}

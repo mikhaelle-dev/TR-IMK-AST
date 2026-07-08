@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis - Tour Guide</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="guide.css">
+<style>
+.navbar {
+    background: #fff;
+    padding: 18px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+.navbar-brand {
+    font-size: 1.55rem;
+    font-weight: 1000;
+    color: #007c9c !important;
+}
+.navbar-brand i {
+    color: #3bb2d0;
+    font-size: 1.3rem;
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    color: #1a2530 !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 10px 8px !important;
+    border-bottom: 2px solid transparent;
+    transition: .3s;
+}
+.nav-link:hover {
+    color: #007c9c !important;
+}
+.nav-link.active {
+    color: #007c9c !important;
+    border-bottom: 2px solid #007c9c;
+}
+.profile-icon {
+    color: #007c9c;
+    font-size: 1.3rem;
+    transition: .3s;
+}
+.profile-icon:hover {
+    color: #3bb2d0;
+}
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-nav {
+        gap: 0;
+    }
+    .nav-link {
+        padding: 12px !important;
+    }
+}
+</style>    <link rel="stylesheet" href="../asset/css/common.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html"><i class="fa-solid fa-chart-pie"></i> Artemis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="../destination/destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="../tour/tour.html">Tour Package</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../guide/guide.html">Tour Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="../faq/faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="../about-us/about.html">About Us</a></li>
+            </ul></div>
+        <div class="d-none d-lg-block"><a href="../akun/akun.html" class="profile-icon" aria-label="Profile"><i class="fa-solid fa-user"></i></a></div>
+    </div>
+</nav>
+
+ 
+
+    <!-- Hero Section -->
+    <section class="hero-guide">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Meet Our Professional<br><span>Tour Guides</span></h1>
+                <p>Explore every destination with experienced local guides who bring culture, history, and hidden gems to life. Curated for the modern traveler.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Grid Section -->
+    <div class="container py-5 mt-4 mb-5">
+        <div class="row g-4">
+            
+<!-- Baris 1 -->
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/1200x/d0/96/f4/d096f452eba10f13ee23582cd9589b67.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Lee See Ho</h4>
+            <p class="guide-role">
+                Wildlife & Eco Tourism
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    South Korea
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    5 Years Experience
+                </span>
+            </div>
+
+            <a href="lee.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/0e/48/89/0e4889b3d7efac3bdf29e4f92f4d66f8.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Caine Chana</h4>
+            <p class="guide-role">
+                Adventure & Nature Guide
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Brazil
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    10 Years Experience
+                </span>
+            </div>
+
+            <a href="caine.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/a9/1d/3c/a91d3c69296fbef2b00f1d04276f92b4.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Cewia</h4>
+            <p class="guide-role">
+                Cultural & History Specialist
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Singapore
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    15 Years Experience
+                </span>
+            </div>
+
+            <a href="cewia.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/35/e9/05/35e90557bbb6bbdc372d27b9e44f7bd2.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Echi Cheres</h4>
+            <p class="guide-role">
+               Culinary Experience Guide
+            </p>
+
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    United States
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    15 Years Experience
+                </span>
+            </div>
+
+            <a href="echi.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/ec/d3/80/ecd3802bad6b56a0ffd4f1791c18c8ae.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Gabe</h4>
+            <p class="guide-role">
+                Mountain & Trekking
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    7 Years Experience
+                </span>
+            </div>
+
+            <a href="Gabe.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/ac/f4/f7/acf4f77fce3031bdae6c34d461fc6ed9.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Key Selyo</h4>
+            <p class="guide-role">
+               Luxury Travel Consultant
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Australia
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    15 Years Experience
+                </span>
+            </div>
+
+            <a href="key.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/1200x/98/0f/8e/980f8edaae405546073f9a735058a7df.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Krow Boloni</h4>
+            <p class="guide-role">
+               Photography Tour Expert
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Italy
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    15 Years Experience
+                </span>
+            </div>
+
+            <a href="krow.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/6f/ab/e5/6fabe52272c04b0982ba0a0bc6a73779.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Riji Cassanova</h4>
+            <p class="guide-role">
+               Featured Specialist
+            </p>
+            <div class="guide-info">
+                <span>
+                    Egypt
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    12 Years Experience
+                </span>
+            </div>
+
+            <a href="riji.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/736x/4a/74/e4/4a74e482a97dc39b7367ffba27cfaf84.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Rion Kenzo</h4>
+            <p class="guide-role">
+               Corporate & Group Tour
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Indonesia
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    16 Years Experience
+                </span>
+            </div>
+
+            <a href="rion.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/1200x/e8/86/46/e8864680cd55887adc1f66da5491d483.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+            <h4>Scarlett Hayes</h4>
+            <p class="guide-role">
+                Family Travel Specialist
+            </p>
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Malaysia
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    5 Years Experience
+                </span>
+            </div>
+
+            <a href="scarlett.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="guide-card">
+        <div class="guide-image">
+            <img src="https://i.pinimg.com/1200x/87/17/e1/8717e10f1de9cece362988c51616a4cd.jpg" alt="Guide">
+            <div class="guide-badge">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verified
+                </span>
+                <span>
+                    ⭐ 4.9
+                </span>
+            </div>
+        </div>
+
+        <div class="guide-content">
+
+            <h4>Souta</h4>
+            <p class="guide-role">
+               Curated Photography
+            </p>
+
+            <div class="guide-info">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    China
+                </span>
+                <span>
+                    <i class="fa-solid fa-briefcase"></i>
+                    12 Years Experience
+                </span>
+            </div>
+
+            <a href="souta.html" class="guide-btn">
+                View Profile
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+    <div class="container mt-4">
+        <div class="row gy-4 border-bottom border-secondary pb-4 mb-4" style="border-color: rgba(255,255,255,0.1) !important;">
+            <div class="col-lg-5 pe-lg-5">
+                <h3 class="fw-bold mb-3">Artemis</h3>
+                <p class="small lh-lg mb-4">Experience exceptional travel, authentic cultural moments, and unforgettable adventures. Let your dream destination become a reality.</p>
+                <div>
+                    <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4">Explore</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="../index.html" class="text-decoration-none text-muted footer-link">Home</a></li>
+                    <li><a href="../destination/destination.html" class="text-decoration-none text-muted footer-link">Destination</a></li>
+                    <li><a href="../tour/tour.html" class="text-decoration-none text-muted footer-link">Tour Package</a></li>
+                    <li><a href="../guide/guide.html" class="text-decoration-none text-muted footer-link">Tour Guide</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4">Support</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="../faq/contact.html" class="text-decoration-none text-muted footer-link">Contact Us</a></li>
+                    <li><a href="../faq/faq.html" class="text-decoration-none text-muted footer-link">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 class="mb-4">Legal</h5>
+                <ul class="list-unstyled small d-flex flex-column gap-3">
+                    <li><a href="../Legal/privacy.html" class="text-decoration-none text-muted footer-link">Privacy Policy</a></li>
+                    <li><a href="../Legal/term.html" class="text-decoration-none text-muted footer-link">Terms & Condition</a></li>
+                    <li><a href="../Legal/cookie.html" class="text-decoration-none text-muted footer-link">Cookie Policy</a></li>
+                    <li><a href="../Legal/disclamer.html" class="text-decoration-none text-muted footer-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center small">
+            &copy; 2024 SkyHorizon Travel Marketplace. All rights reserved.
+        </div>
+    </div>
+</footer>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis - Tour Guide Profile Detail</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --accent-blue: #38bdf8;
+            --teal-dark: #0c5974;
+            --footer-bg: #2b3543;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --bg-light: #f8fcfc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: white;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* --- Navbar --- */
+        .navbar-brand .logo-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-blue) !important;
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* --- Layout & Cards --- */
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            transition: 0.2s;
+            background-color: white;
+        }
+
+        .back-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-blue);
+        }
+
+        .card-custom {
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            margin-bottom: 25px;
+        }
+
+        /* --- Profile Header --- */
+        .profile-img-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            padding: 5px;
+            border: 1px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: white;
+            color: var(--teal-dark);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-box {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 12px;
+            min-width: 100px;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        /* --- Expertise Progress --- */
+        .expertise-row {
+            margin-bottom: 20px;
+        }
+
+        .expertise-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .expertise-label span:last-child {
+            color: var(--teal-dark);
+        }
+
+        .progress-custom {
+            height: 12px;
+            border-radius: 10px;
+            background-color: #e0f2fe;
+        }
+
+        .progress-custom .progress-bar {
+            background-color: var(--teal-dark);
+            border-radius: 10px;
+        }
+
+        /* --- Reviews --- */
+        .review-box {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .avatar-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #ccfbf1;
+            /* Light teal */
+            color: var(--teal-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- Sidebar Contact --- */
+        .sidebar-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #f0f9ff;
+            color: var(--teal-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .btn-schedule {
+            background-color: var(--teal-dark);
+            color: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-weight: 600;
+            width: 100%;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-schedule:hover {
+            background-color: #083f54;
+            color: white;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--footer-bg);
+            color: #9ca3af;
+            margin-top: 60px;
+        }
+
+        footer h5 {
+            color: white;
+            font-weight: 700;
+        }
+
+        .social-circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .social-circle:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #9ca3af;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="../asset/css/common.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            Artemis
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="../destination/destination.html">Destination</a></li>
+                <li class="nav-item"><a class="nav-link" href="../tour/tour.html">Tour Package</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../guide/guide.html">Tour Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="../faq/faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="../about-us/about.html">About Us</a></li>
+            </ul>
+        </div>
+        <div class="d-none d-lg-block">
+            <a href="../akun/akun.html" class="profile-icon">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <div class="container py-4 mb-5">
+
+        <!-- Tombol Back -->
+        <a href="#" class="back-btn mb-4"><i class="fas fa-arrow-left"></i></a>
+
+        <div class="row g-4">
+
+            <!-- Kolom Kiri: Profil, Expertise, Reviews -->
+            <div class="col-lg-7">
+
+                <!-- Profil Card -->
+                <div class="card-custom">
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4">
+                        <div class="profile-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=250&auto=format&fit=crop"
+                                class="profile-img" alt="Key Selyo">
+                            <div class="verified-badge"><i class="fas fa-certificate"></i></div>
+                        </div>
+                        <div class="text-center text-md-start mt-3 mt-md-0 w-100">
+                            <div class="d-flex flex-column flex-md-row align-items-center gap-2 mb-4">
+                                <div class="text-primary" style="font-size: 1.2rem; color: #0284c7 !important;">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-muted small fw-medium">(120+ Positive Reviews)</span>
+                            </div>
+
+                            <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+                                <div class="stat-box">
+                                    <h3 class="fw-bold m-0" style="color: var(--teal-dark);">8+</h3>
+                                    <small class="text-muted" style="font-size: 0.7rem; font-weight: 600;">YEARS
+                                        EXP.</small>
+                                </div>
+                                <div class="stat-box">
+                                    <h3 class="fw-bold m-0" style="color: var(--teal-dark);">2</h3>
+                                    <small class="text-muted"
+                                        style="font-size: 0.7rem; font-weight: 600;">LANGUAGES</small>
+                                </div>
+                                <div class="stat-box">
+                                    <h3 class="fw-bold m-0" style="color: var(--teal-dark);">200+</h3>
+                                    <small class="text-muted" style="font-size: 0.7rem; font-weight: 600;">TOURS</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expertise Highlights -->
+                <div class="card-custom">
+                    <h4 class="fw-bold mb-4">Expertise Highlights</h4>
+
+                    <div class="expertise-row">
+                        <div class="expertise-label"><span>Trustworthy</span><span>91%</span></div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar" style="width: 91%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="expertise-row">
+                        <div class="expertise-label"><span>Experience</span><span>85%</span></div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="expertise-row m-0">
+                        <div class="expertise-label"><span>Safety</span><span>100%</span></div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Kanan: Sidebar Contact -->
+            <div class="col-lg-5">
+                <div class="card-custom h-100 position-sticky" style="top: 100px;">
+                    <h2 class="fw-bold mb-1">Key Selyo</h2>
+                    <p class="mb-4" style="color: #0284c7; font-weight: 500;">Luxury Travel Consultant</p>
+
+                    <h6 class="fw-bold mb-3 text-secondary">ABOUT KEY SELYO</h6>
+                    <p class="text-muted small lh-lg mb-4">Key has over a decade of experience organizing premium travel
+                        experiences. She focuses on personalized service, exclusive accommodations, and high-end
+                        activities tailored to each traveler's preferences.</p>
+
+                    <div class="d-flex gap-3 align-items-start mb-4">
+                        <div class="sidebar-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <small class="text-muted d-block"
+                                style="font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">Nationality</small>
+                            <span class="fw-medium text-dark" style="font-size: 0.9rem;">Sydney, Australia</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 align-items-start mb-4">
+                        <div class="sidebar-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <small class="text-muted d-block"
+                                style="font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">Phone</small>
+                            <span class="fw-medium text-dark" style="font-size: 0.9rem;">+39 06 1234 5678</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 align-items-start mb-5">
+                        <div class="sidebar-icon"><i class="far fa-envelope"></i></div>
+                        <div style="word-break: break-all;">
+                            <small class="text-muted d-block"
+                                style="font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">Email</small>
+                            <span class="fw-medium text-dark"
+                                style="font-size: 0.9rem;">keyselyo.@rtemis-marketplace.com</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-schedule">Schedule a Consultation</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <h5 class="fw-bold mb-3">Top Reviews</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="review-box">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="avatar-circle">A</div>
+                                <div>
+                                    <h6 class="m-0 fw-bold">Abel</h6>
+                                    <small class="text-muted" style="font-size: 0.7rem;">Reviewed June 2024</small>
+                                </div>
+                            </div>
+                            <div class="mb-2" style="font-size: 0.8rem; color: #0284c7;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small lh-lg m-0">"What impressed me most was the level of
+                                personalization. Key understood exactly what we wanted from the trip and created an
+                                experience that felt both seamless and exceptional."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="review-box">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="avatar-circle">A</div>
+                                <div>
+                                    <h6 class="m-0 fw-bold">Aransa</h6>
+                                    <small class="text-muted" style="font-size: 0.7rem;">Reviewed June 2024</small>
+                                </div>
+                            </div>
+                            <div class="mb-2" style="font-size: 0.8rem; color: #0284c7;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small lh-lg m-0">"Key delivered a truly luxurious travel experience.
+                                Every detail, from the accommodations to the exclusive activities, was carefully
+                                arranged to match our preferences."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+        <div class="container mt-4">
+            <div class="row gy-4 border-bottom border-secondary pb-4 mb-4"
+                style="border-color: rgba(255,255,255,0.1) !important;">
+                <div class="col-lg-5 pe-lg-5">
+                    <h3 class="fw-bold mb-3">Artemis</h3>
+                    <p class="small lh-lg mb-4">Experience exceptional travel, authentic cultural moments, and
+                        unforgettable adventures. Let your dream destination become a reality.</p>
+                    <div>
+                        <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Explore</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../index.html" class="text-decoration-none text-muted footer-link">Home</a></li>
+                        <li><a href="../destination/destination.html"
+                                class="text-decoration-none text-muted footer-link">Destination</a></li>
+                        <li><a href="../tour/tour.html" class="text-decoration-none text-muted footer-link">Tour
+                                Package</a></li>
+                        <li><a href="../guide/guide.html" class="text-decoration-none text-muted footer-link">Tour
+                                Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Support</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../faq/contact.html"
+                                class="text-decoration-none text-muted footer-link">Contact Us</a></li>
+                        <li><a href="../faq/faq.html" class="text-decoration-none text-muted footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Legal</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-3">
+                        <li><a href="../Legal/privacy.html" class="text-decoration-none text-muted footer-link">Privacy Policy</a></li>
+                        <li><a href="../Legal/term.html" class="text-decoration-none text-muted footer-link">Terms & Condition</a></li>
+                        <li><a href="../Legal/cookie.html" class="text-decoration-none text-muted footer-link">Cookie Policy</a></li>
+                        <li><a href="../Legal/disclamer.html" class="text-decoration-none text-muted footer-link">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center small">
+                &copy; 2024 SkyHorizon Travel Marketplace. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="consultation.js"></script>
+</body>
+</html>

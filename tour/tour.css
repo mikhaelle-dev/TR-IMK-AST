@@ -1,0 +1,483 @@
+﻿:root {
+    --primary-color: #007c9c;
+    --secondary-color: #3bb2d0;
+    --dark-color: #1a2530;
+    --text-muted: #6c757d;
+    --bg-light: #f8fbfa;
+    --footer-bg: #293441;
+    --border-color: #eaedf1;
+    --primary-blue: #0088ff;
+    --accent-blue: #38bdf8;
+    --teal-dark: #0c5974;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--dark-color);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background: #fff;
+    padding: 18px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+.navbar-brand {
+    font-size: 1.55rem;
+    font-weight: 1000;
+    color: #007c9c !important;
+}
+.navbar-brand i {
+    color: #3bb2d0;
+    font-size: 1.3rem;
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    color: #1a2530 !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 10px 8px !important;
+    border-bottom: 2px solid transparent;
+    transition: .3s;
+}
+.nav-link:hover {
+    color: #007c9c !important;
+}
+.nav-link.active {
+    color: #007c9c !important;
+    border-bottom: 2px solid #007c9c;
+}
+.profile-icon {
+    color: #007c9c;
+    font-size: 1.3rem;
+    transition: .3s;
+}
+.profile-icon:hover {
+    color: #3bb2d0;
+}
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-nav {
+        gap: 0;
+    }
+    .nav-link {
+        padding: 12px !important;
+    }
+}
+
+/* --- Hero Section --- */
+/* --- Hero Section --- */
+.hero-tour {
+    /* Mengubah rgba hijau menjadi hitam transparan agar warna asli gambar muncul */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url('https://i.pinimg.com/1200x/1d/ca/1d/1dca1d9392f60eafc742e5dbb7aedbe3.jpg') no-repeat center center/cover;
+    height: 90vh;
+    padding: 120px 0 160px 0; 
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-title {
+    font-weight: 800;          /* Mengatur ketebalan teks (800 = Extra Bold) */
+    font-size: 3.5rem;         /* Menambah ukuran teks (bisa dinaikkan ke 4rem jika kurang besar) */
+    letter-spacing: -1px;      /* Opsional: merapatkan sedikit jarak antar huruf agar lebih rapi saat besar */
+}
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+/* Container utama Search Bar */
+.search-widget {
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 30px auto 0 auto;
+}
+
+/* Pengaturan kolom input di dalam Search Bar */
+.search-field {
+    padding: 10px 15px;
+    border-right: 1px solid #efefef;
+    text-align: left;
+}
+
+/* Menghapus garis pembatas di kolom terakhir sebelum tombol */
+.search-field:last-of-type {
+    border-right: none;
+}
+
+/* Mengatur Icon di samping input */
+.search-field i {
+    color: #147a82; /* Warna icon teal */
+    font-size: 1.2rem;
+}
+
+/* Judul kecil di atas input (Destination, Date, dll) */
+.search-field label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6c757d;
+    margin-bottom: 2px;
+}
+
+/* Menghilangkan border bawaan dari input teks dan select option */
+.search-field input, 
+.search-field select {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #212529;
+    background: transparent;
+}
+
+/* ===================================================
+   RESPONSIF MOBILE (Agar rapi saat dibuka di HP)
+   =================================================== */
+@media (max-width: 991.98px) {
+    .search-widget {
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .search-field {
+        border-right: none;
+        border-bottom: 1px solid #efefef;
+        padding: 12px 0;
+    }
+    
+    .search-field:last-of-type {
+        border-bottom: none;
+    }
+}
+
+/* --- Category Cards --- */
+.category-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: all 0.35s ease;
+    background: #fff;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* --- State Aktif Bawaan untuk Kartu Kategori --- */
+.category-card.active {
+    background-color: #0b6e8d !important; /* Ganti dengan kode hex warna biru gelapmu jika berbeda */
+    border-color: #0b6e8d !important;
+    transform: translateY(-5px); /* Membuat kartu sedikit terangkat */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mengubah semua teks & ikon di dalam kartu aktif menjadi putih/terang */
+.category-card.active h6 {
+    color: #ffffff !important;
+}
+
+.category-card.active p {
+    color: #e0f2fe !important; /* Warna teks kecil agak kebiruan cerah */
+}
+
+.category-card.active .cat-icon {
+    background-color: #ffffff !important;
+    color: #0b6e8d !important; /* Ikon di dalam lingkaran jadi biru */
+}
+
+.category-card.active .badge-soft {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+/* Hover Card */
+.category-card:hover {
+    background: #0b6e8d;
+    /* warna biru seperti gambar */
+    border-color: #0b6e8d;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .15);
+}
+
+/* Judul */
+.category-card h6 {
+    transition: .35s;
+}
+
+/* Deskripsi */
+.category-card p {
+    transition: .35s;
+}
+
+/* Icon */
+.cat-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0f9ff;
+    color: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 15px;
+    transition: .35s;
+}
+
+/* Badge */
+.badge-soft {
+    background: #e0f2fe;
+    color: #0284c7;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: .75rem;
+    transition: .35s;
+}
+
+/*HOVER SEMUA ISI CARD*/
+
+.category-card:hover h6 {
+    color: #ffffff;
+}
+
+.category-card:hover p {
+    color: #dbeafe !important;
+}
+
+.category-card:hover .cat-icon {
+    background: #ffffff;
+    color: #0b6e8d;
+}
+
+.category-card:hover .badge-soft {
+    background: #ffffff;
+    color: #0b6e8d;
+}
+
+/* --- Featured Packages Cards --- */
+.tour-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.tour-img-wrap {
+    position: relative;
+    height: 200px;
+}
+
+.tour-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heart-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* --- Family Favorites (Overlay Cards) --- */
+.family-favorites-bg {
+    background-color: var(--bg-light);
+    padding: 60px 0;
+    margin-top: 40px;
+}
+
+.overlay-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 320px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.overlay-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 30px 20px 20px;
+    color: white;
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+    background-color: var(--teal-dark);
+    border-radius: 20px;
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+    margin: 60px auto;
+    max-width: 1100px;
+}
+
+/* =====================================
+   Bottom Bootstrap Slider
+===================================== */
+
+#bottomSlider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    height: 400px;
+}
+
+.slider-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Tombol */
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: 55%;
+    background-color: rgba(0, 0, 0, .25);
+    transition: .3s;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, .55);
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    .carousel-item,
+    .slider-img {
+        height: 250px;
+    }
+
+}
+
+/* ===========================
+   Efek Animasi Slider
+=========================== */
+
+.carousel-item {
+    transition: transform 1s ease-in-out;
+}
+
+/* Efek zoom pada gambar */
+.carousel-item img {
+    transition: transform 5s ease;
+}
+
+/* Saat slide aktif */
+.carousel-item.active img {
+    transform: scale(1.08);
+}
+
+/* Hover tombol */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    transition: all .3s ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    transform: scale(1.15);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg);
+    color: #9ca3af;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-circle:hover {
+    background: var(--primary-blue);
+    color: white;
+}
