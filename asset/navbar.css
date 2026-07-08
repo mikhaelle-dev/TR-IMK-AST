@@ -1,0 +1,151 @@
+/* ==========================================
+   NAVBAR COMPONENT - CSS
+   File: assets/css/navbar.css
+   ========================================== */
+
+.navbar {
+    background: #ffffff;
+    padding: 14px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #007c9c !important;
+}
+
+.navbar-brand i {
+    color: #3bb2d0;
+    font-size: 1.2rem;
+}
+
+.navbar-nav {
+    gap: 4px; /* ← DIKECILKAN dari 10px */
+}
+
+.nav-link {
+    color: #1a2530 !important;
+    font-weight: 600; /* ← DIKECILKAN dari 700 */
+    font-size: 0.95rem; /* ← DIKECILKAN dari 1.2rem */
+    padding: 8px 14px !important; /* ← DIKECILKAN */
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    color: #007c9c !important;
+    background: rgba(0, 124, 156, 0.06);
+}
+
+.nav-link.active {
+    color: #007c9c !important;
+    border-bottom: 2px solid #007c9c;
+    background: rgba(0, 124, 156, 0.06);
+}
+
+.profile-icon {
+    color: #007c9c;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.profile-icon:hover {
+    color: #3bb2d0;
+    background: rgba(0, 124, 156, 0.06);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 8px 12px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+/* Tablet & Mobile */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+        margin-top: 16px;
+        padding: 16px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-nav {
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 12px 16px !important;
+        font-size: 1rem;
+        border-bottom: none;
+        border-radius: 8px;
+        display: block;
+        text-align: center;
+    }
+
+    .nav-link.active {
+        border-bottom: none;
+        background: rgba(0, 124, 156, 0.08);
+    }
+
+    .nav-link:hover {
+        background: rgba(0, 124, 156, 0.05);
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .profile-icon {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Kecil */
+@media (max-width: 576px) {
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .navbar-brand i {
+        font-size: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 10px 14px !important;
+    }
+
+    .profile-icon {
+        font-size: 1rem;
+    }
+}

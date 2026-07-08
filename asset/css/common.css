@@ -5,7 +5,7 @@
     --artemis-footer-bg: #293441;
 }
 
-.navbar {
+/* .navbar {
     background: #ffffff !important;
     padding: 18px 0 !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
@@ -75,7 +75,7 @@
     .nav-link {
         padding: 12px !important;
     }
-}
+} */
 
 .btn-primary,
 .btn-primary-custom,

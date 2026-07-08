@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bromo Volcanic Adventure â€” Booking</title>
+<title>Bromo Volcanic Adventure — Booking</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="stylesheet" href="../asset/back-button.css">
 <style>
   :root {
     --primary-blue: #0088ff;
@@ -50,28 +52,7 @@
     max-width:1180px;
     margin:0 auto 24px;
   }
-  .back-btn{
-    width:44px; height:44px;
-    border-radius:12px;
-    background: var(--panel);
-    border:1px solid var(--border);
-    color: var(--muted);
-    font-size:18px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition: all 0.25s ease;
-    box-shadow: var(--shadow-card);
-  }
-  .back-btn:hover{
-    background: var(--accent-soft);
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-    transform: translateX(-3px);
-    box-shadow: 0 0 20px rgba(0,136,255,0.08);
-  }
-
+  
   .layout{
     max-width:1180px;
     margin:0 auto;
@@ -135,6 +116,12 @@
     font-size:13px;
     font-weight:500;
   }
+  .meta-row i{
+    color: var(--muted);
+    font-size:14px;
+    width:16px;
+    text-align:center;
+  }
   .price-tag{
     color: var(--primary-blue);
     font-weight:700;
@@ -159,6 +146,10 @@
     font-size:12px;
     color: var(--text-secondary);
     font-weight:500;
+  }
+  .stat-row span i{
+    color: var(--muted);
+    font-size:12px;
   }
 
   section.block{ margin-bottom:0; }
@@ -321,7 +312,10 @@
     color:#f59e0b;
     font-size:12px;
     margin:4px 0;
-    letter-spacing:1px;
+    letter-spacing:2px;
+  }
+  .guide-card .stars i{
+    margin:0 1px;
   }
   .guide-card .langs{
     color:var(--muted);
@@ -402,7 +396,12 @@
   }
   .field input::placeholder{ color: var(--muted); }
   .field input[type="date"]{ color-scheme: light; }
-  .field .ic{ color:var(--muted); font-size:14px; }
+  .field .ic{
+    color:var(--muted);
+    font-size:14px;
+    width:18px;
+    text-align:center;
+  }
 
   .label{
     font-size:11px;
@@ -526,6 +525,12 @@
   }
   .pay-method .icon {
     font-size: 18px;
+    width: 24px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .pay-method.selected .icon {
+    color: var(--primary-blue);
   }
   .pay-method .label {
     margin: 0;
@@ -541,23 +546,27 @@
     font-weight: 400;
   }
 
-.back-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dark);
-    transition: 0.2s;
-    background-color: white;
-}
-
-.back-btn:hover {
-    background-color: #f1f5f9;
-    color: var(--primary-blue);
-}
+  .book-btn{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border-radius:30px;
+    border:none;
+    background: var(--primary-blue);
+    color: white;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0,136,255,0.25);
+    font-family: inherit;
+    letter-spacing:0.2px;
+  }
+  .book-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,136,255,0.35);
+    background: var(--accent-hover);
+  }
   .book-btn:active{
     transform: scale(0.98);
   }
@@ -769,12 +778,14 @@
     .package-grid, .guide-grid{ grid-template-columns: 1fr; }
   }
 </style>
-    <link rel="stylesheet" href="../asset/css/common.css">
 </head>
 <body>
-
-<!-- Tombol Back -->
-<a href="#" class="back-btn mb-4"><i class="fas fa-arrow-left"></i></a>
+    <!-- ===== BACK BUTTON ===== -->
+    <div class="top">
+        <button class="back-btn" onclick="handleBackClick()" aria-label="Kembali">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
 
 <div class="layout">
   <!-- LEFT COLUMN -->
@@ -783,13 +794,13 @@
       <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=800&auto=format&fit=crop')"></div>
       <div class="hero-info">
         <h1>Bromo Volcanic Adventure</h1>
-        <div class="meta-row">ðŸ“ Probolinggo, Jawa Timur</div>
-        <div class="meta-row">Adventure</div>
+        <div class="meta-row"><i class="fas fa-map-marker-alt"></i> Probolinggo, Jawa Timur</div>
+        <div class="meta-row"><i class="fas fa-tag"></i> Adventure</div>
         <div class="price-tag">Rp 350.000/Person</div>
         <div class="stat-row">
-          <span>ðŸ—“ 1 day</span>
-          <span>ðŸ‘¥ 10-20 people</span>
-          <span>â­ 4.9</span>
+          <span><i class="far fa-calendar"></i> 1 day</span>
+          <span><i class="fas fa-users"></i> 10-20 people</span>
+          <span><i class="fas fa-star"></i> 4.9</span>
         </div>
       </div>
     </div>
@@ -835,7 +846,7 @@
         <div class="guide-card selected" data-fee="250000" data-name="Hee So Yam">
           <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="guide">
           <div class="gname">Hee So Yam</div>
-          <div class="stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <div class="langs">English, Japanese, ID, Chinese</div>
           <div class="exp">10+ Years Professional</div>
           <div class="fee">+Rp250.000</div>
@@ -844,7 +855,7 @@
         <div class="guide-card" data-fee="250000" data-name="Hee So Yam">
           <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" alt="guide">
           <div class="gname">Hee So Yam</div>
-          <div class="stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <div class="langs">English, Japanese, ID, Chinese</div>
           <div class="exp">10+ Years Professional</div>
           <div class="fee">+Rp250.000</div>
@@ -853,7 +864,7 @@
         <div class="guide-card" data-fee="250000" data-name="Rion Kenzo">
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="guide">
           <div class="gname">Rion Kenzo</div>
-          <div class="stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <div class="langs">English, Japanese, ID</div>
           <div class="exp">10+ Years Professional</div>
           <div class="fee">+Rp250.000</div>
@@ -867,8 +878,8 @@
   <div class="reserve">
     <h2>Reserve</h2>
     <div class="field-row">
-      <div class="field"><span class="ic">ðŸ“…</span><input type="date" id="dateInput"></div>
-      <div class="field"><span class="ic">ðŸ‘¤</span><input type="text" id="peopleInput" value="10 - 20" placeholder="10 - 20"></div>
+      <div class="field"><span class="ic"><i class="far fa-calendar"></i></span><input type="date" id="dateInput"></div>
+      <div class="field"><span class="ic"><i class="fas fa-user"></i></span><input type="text" id="peopleInput" value="10 - 20" placeholder="10 - 20"></div>
     </div>
     <div class="label">Full Name</div>
     <input class="input-full" id="fullName" placeholder="John Doe">
@@ -886,7 +897,7 @@
     <div class="pay-methods" id="paymentMethods">
       <label class="pay-method selected">
         <input type="radio" name="payment" value="Credit Card" checked>
-        <span class="icon">ðŸ’³</span>
+        <span class="icon"><i class="fas fa-credit-card"></i></span>
         <div>
           <div class="label">Credit Card</div>
           <div class="sub">Visa, Mastercard, JCB</div>
@@ -894,7 +905,7 @@
       </label>
       <label class="pay-method">
         <input type="radio" name="payment" value="Bank Transfer">
-        <span class="icon">ðŸ¦</span>
+        <span class="icon"><i class="fas fa-university"></i></span>
         <div>
           <div class="label">Bank Transfer</div>
           <div class="sub">BRI, BCA, Mandiri</div>
@@ -902,7 +913,7 @@
       </label>
       <label class="pay-method">
         <input type="radio" name="payment" value="E-wallet (Gopay, OVO, Dana)">
-        <span class="icon">ðŸ“±</span>
+        <span class="icon"><i class="fas fa-mobile-alt"></i></span>
         <div>
           <div class="label">E-wallet</div>
           <div class="sub">Gopay, OVO, Dana</div>
@@ -918,7 +929,7 @@
 <div class="overlay" id="confirmOverlay">
   <div class="modal" id="confirmModal">
     <div class="modal-header">
-      <button class="mini-btn" onclick="closeOverlay('confirmOverlay')">â†</button>
+      <button class="mini-btn" onclick="closeOverlay('confirmOverlay')"><i class="fas fa-arrow-left"></i></button>
       <div style="flex:1; margin-left:12px;">
         <div class="modal-title">Payment Confirmation</div>
         <div class="modal-sub">Pilih metode pembayaran berdasarkan booking</div>
@@ -928,7 +939,7 @@
     <div class="conf-card">
       <div>
         <div class="cname">Bromo Volcanic Adventure</div>
-        <div class="csub" id="confSub">Premium Package Â· 2 people</div>
+        <div class="csub" id="confSub">Premium Package · 2 people</div>
       </div>
       <div class="cprice" id="confAmount">IDR 3.500.000</div>
     </div>
@@ -936,7 +947,7 @@
     <div class="pay-methods" id="modalPayMethods">
       <label class="pay-method selected">
         <input type="radio" name="modalPayment" value="Credit Card" checked>
-        <span class="icon">ðŸ’³</span>
+        <span class="icon"><i class="fas fa-credit-card"></i></span>
         <div>
           <div class="label">Credit Card</div>
           <div class="sub">Visa, Mastercard, JCB</div>
@@ -944,7 +955,7 @@
       </label>
       <label class="pay-method">
         <input type="radio" name="modalPayment" value="Bank Transfer">
-        <span class="icon">ðŸ¦</span>
+        <span class="icon"><i class="fas fa-university"></i></span>
         <div>
           <div class="label">Bank Transfer</div>
           <div class="sub">BRI, BCA, Mandiri</div>
@@ -952,7 +963,7 @@
       </label>
       <label class="pay-method">
         <input type="radio" name="modalPayment" value="E-wallet">
-        <span class="icon">ðŸ’°</span>
+        <span class="icon"><i class="fas fa-wallet"></i></span>
         <div>
           <div class="label">E-wallet</div>
           <div class="sub">Gopay, Dana, OVO</div>
@@ -967,15 +978,25 @@
 <!-- Success Modal -->
 <div class="overlay" id="successOverlay">
   <div class="modal success-modal">
-    <div class="check-badge">âœ“</div>
+    <div class="check-badge"><i class="fas fa-check"></i></div>
     <h3>Payment Successful</h3>
     <p>Your booking for the Bromo Volcanic Adventure has been confirmed. Trip details will be sent to your email address</p>
     <button class="cek-btn" onclick="closeOverlay('successOverlay')">Cek Your ID</button>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
 
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="../asset/back-button.js"></script>
+
+    <script>
+        // Override handleBackClick jika perlu
+        handleBackClick = function() {
+            window.location.href = '../home/index.html';
+        };
+    </script>
 <script>
   // ---------- STATE ----------
   let state = {
@@ -1081,7 +1102,7 @@
       showToast('Lengkapi Nama & Email terlebih dahulu');
       return;
     }
-    document.getElementById('confSub').textContent = `${state.package.name} Â· ${state.guideEnabled ? 'with guide' : 'no guide'}`;
+    document.getElementById('confSub').textContent = `${state.package.name} · ${state.guideEnabled ? 'with guide' : 'no guide'}`;
     document.getElementById('confAmount').textContent = `IDR ${fmt(state.total)}`;
     
     // Sync radio selection to modal

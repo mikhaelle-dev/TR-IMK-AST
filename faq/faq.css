@@ -28,30 +28,6 @@ body {
     box-sizing: border-box;
 }
 
-/* --- Navbar --- */
-.navbar-brand .logo-icon {
-    background-color: var(--primary-blue);
-    color: white;
-    width: 35px;
-    height: 35px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-link {
-    font-weight: 600;
-    color: #333 !important;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-blue) !important;
-    border-bottom-color: var(--primary-blue);
-}
-
 /* --- Hero Section --- */
 .hero-faq {
     height: 400px;
