@@ -17,7 +17,10 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Navbar Component CSS -->
     <link rel="stylesheet" href="../asset/navbar.css">
+
     <style>
         :root {
             --primary-color: #007c9c;
@@ -537,19 +540,6 @@
 
         /* --- Responsive --- */
         @media (max-width: 991px) {
-            .navbar-collapse {
-                text-align: center;
-                margin-top: 20px;
-            }
-
-            .navbar-nav {
-                gap: 0;
-            }
-
-            .nav-link {
-                padding: 12px !important;
-            }
-
             .booking-widget {
                 padding: 15px 20px;
                 max-width: 95%;
@@ -656,9 +646,7 @@
 
 <body>
 
-<div id="navbar-container" data-component="../asset/navbar.html"></div> </div>
-        </div>
-    </nav>
+    <div id="navbar-container" data-component="../asset/navbar.html"></div>
 
     <!-- Hero Section -->
     <section class="hero-tour">
@@ -718,11 +706,19 @@
         <h4 class="fw-bold mb-4" style="color: var(--teal-dark);">Explore by Category</h4>
         <div class="row g-3 mb-5 pb-3" id="categoryContainer">
             <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card active" data-category="all">
+                    <div class="cat-icon"><i class="fas fa-th-large"></i></div>
+                    <h6 class="fw-bold mb-1">All</h6>
+                    <p class="text-muted small mb-3" style="font-size: 0.7rem;">All packages</p>
+                    <span class="badge-soft">18 Packages</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="category-card" data-category="family">
                     <div class="cat-icon"><i class="fas fa-user-friends"></i></div>
                     <h6 class="fw-bold mb-1">Family Trip</h6>
                     <p class="text-muted small mb-3" style="font-size: 0.7rem;">Fun for all ages</p>
-                    <span class="badge-soft">3 Packages</span>
+                    <span class="badge-soft">4 Packages</span>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
@@ -730,7 +726,7 @@
                     <div class="cat-icon"><i class="fas fa-heart"></i></div>
                     <h6 class="fw-bold mb-1">Honeymoon</h6>
                     <p class="text-muted small mb-3" style="font-size: 0.7rem;">Romantic escapes</p>
-                    <span class="badge-soft">2 Packages</span>
+                    <span class="badge-soft">3 Packages</span>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
@@ -738,7 +734,7 @@
                     <div class="cat-icon"><i class="fas fa-compass"></i></div>
                     <h6 class="fw-bold mb-1">Adventure</h6>
                     <p class="text-muted small mb-3" style="font-size: 0.7rem;">Thrill seekers</p>
-                    <span class="badge-soft">1 Packages</span>
+                    <span class="badge-soft">3 Packages</span>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
@@ -754,7 +750,7 @@
                     <div class="cat-icon"><i class="fas fa-building"></i></div>
                     <h6 class="fw-bold mb-1">Corporate</h6>
                     <p class="text-muted small mb-3" style="font-size: 0.7rem;">Business & leisure</p>
-                    <span class="badge-soft">2 Packages</span>
+                    <span class="badge-soft">3 Packages</span>
                 </div>
             </div>
         </div>
@@ -806,7 +802,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="overlay-card">
-                        <img src="https://images.unsplash.com/photo-1538485395224-3298bf0424b4?q=80&w=600&auto=format&fit=crop" alt="Seoul">
+                        <img src="https://i.pinimg.com/1200x/82/e9/88/82e988c94bb0efd637c54a4475cf5fd5.jpg" alt="Seoul">
                         <div class="overlay-text">
                             <small class="fw-semibold">South Korea</small>
                             <h3 class="fw-bold mb-0">Seoul</h3>
@@ -869,7 +865,7 @@
                 <div class="col-lg-2 col-md-4">
                     <h5 class="mb-4">Explore</h5>
                     <ul class="list-unstyled small d-flex flex-column gap-3">
-                        <li><a href="../home/index.html" class="footer-link">Home</a></li>
+                        <li><a href="/home/index.html" class="footer-link">Home</a></li>
                         <li><a href="../destination/destination.html" class="footer-link">Destination</a></li>
                         <li><a href="../tour/tour.html" class="footer-link">Tour Package</a></li>
                         <li><a href="../guide/guide.html" class="footer-link">Tour Guide</a></li>
@@ -900,7 +896,10 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navbar Component JS -->
     <script src="../asset/navbar.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -923,7 +922,7 @@
                     {
                         id: 2,
                         category: 'honeymoon',
-                        img: 'https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=600&auto=format&fit=crop',
+                        img: 'https://i.pinimg.com/736x/8b/a8/20/8ba82023a4b3c41008e1fd24c8ee38f7.jpg',
                         title: 'Heritage Love in Yogyakarta',
                         rating: 4.7,
                         reviews: 208,
@@ -932,9 +931,31 @@
                         price: 'Rp4.200.000'
                     },
                     {
+                        id: 3,
+                        category: 'adventure',
+                        img: 'https://i.pinimg.com/736x/93/f4/bf/93f4bf852b704f7325211f6b357074a0.jpg',
+                        title: 'Bromo Volcanic Adventure',
+                        rating: 4.9,
+                        reviews: 342,
+                        duration: '1 day',
+                        participants: 'Open Trip',
+                        price: 'Rp250.000'
+                    },
+                    {
+                        id: 4,
+                        category: 'family',
+                        img: 'https://i.pinimg.com/1200x/40/32/4e/40324e66cded53f867ac48f70daecbb2.jpg',
+                        title: 'Family Fun in Singapore',
+                        rating: 4.8,
+                        reviews: 156,
+                        duration: '5 days',
+                        participants: 'Up to 6 People',
+                        price: 'Rp6.200.000'
+                    },
+                    {
                         id: 5,
                         category: 'opentrip',
-                        img: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=600&auto=format&fit=crop',
+                        img: 'https://i.pinimg.com/1200x/03/63/70/0363708adc49b2b1d22ba061d2320a89.jpg',
                         title: 'Komodo Island Open Trip',
                         rating: 4.9,
                         reviews: 289,
@@ -942,139 +963,10 @@
                         participants: 'Open Trip',
                         price: 'Rp3.800.000'
                     },
-                    // {
-                    //     id: 6,
-                    //     category: 'adventure',
-                    //     img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Mount Rinjani Trekking',
-                    //     rating: 4.7,
-                    //     reviews: 412,
-                    //     duration: '4 days',
-                    //     participants: 'Up to 8 People',
-                    //     price: 'Rp2.500.000'
-                    // },
-                    // {
-                    //     id: 7,
-                    //     category: 'honeymoon',
-                    //     img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Romantic Sunset in Ubud',
-                    //     rating: 4.9,
-                    //     reviews: 178,
-                    //     duration: '3 days',
-                    //     participants: 'Couple Only',
-                    //     price: 'Rp3.900.000'
-                    // },
-                    // {
-                    //     id: 8,
-                    //     category: 'corporate',
-                    //     img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Corporate Retreat Bali',
-                    //     rating: 4.6,
-                    //     reviews: 95,
-                    //     duration: '5 days',
-                    //     participants: '10-20 People',
-                    //     price: 'Rp12.500.000'
-                    // },
-                    // {
-                    //     id: 9,
-                    //     category: 'opentrip',
-                    //     img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Java Overland Open Trip',
-                    //     rating: 4.8,
-                    //     reviews: 223,
-                    //     duration: '7 days',
-                    //     participants: 'Open Trip',
-                    //     price: 'Rp5.200.000'
-                    // },
-                    // {
-                    //     id: 10,
-                    //     category: 'family',
-                    //     img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Disneyland Tokyo Family',
-                    //     rating: 4.9,
-                    //     reviews: 312,
-                    //     duration: '4 days',
-                    //     participants: 'Up to 5 People',
-                    //     price: 'Rp7.800.000'
-                    // },
-                    // {
-                    //     id: 11,
-                    //     category: 'corporate',
-                    //     img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Executive Retreat Lombok',
-                    //     rating: 4.7,
-                    //     reviews: 67,
-                    //     duration: '6 days',
-                    //     participants: '8-15 People',
-                    //     price: 'Rp15.000.000'
-                    // },
-                    // {
-                    //     id: 14,
-                    //     category: 'opentrip',
-                    //     img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Bali Volcano Open Trip',
-                    //     rating: 4.7,
-                    //     reviews: 167,
-                    //     duration: '2 days',
-                    //     participants: 'Open Trip',
-                    //     price: 'Rp1.200.000'
-                    // },
-                    // {
-                    //     id: 16,
-                    //     category: 'family',
-                    //     img: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=600&auto=format&fit=crop',
-                    //     title: 'Cultural Family Tour Java',
-                    //     rating: 4.6,
-                    //     reviews: 143,
-                    //     duration: '5 days',
-                    //     participants: 'Up to 4 People',
-                    //     price: 'Rp4.800.000'
-                    // },
-    
-                ],
-                family: [
-    {
-        id: 1,
-        category: 'family',
-        img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600&auto=format&fit=crop',
-        title: 'Bali Luxury Family Escape',
-        rating: 4.9,
-        reviews: 234,
-        duration: '6 days',
-        participants: 'Up to 4 People',
-        price: 'Rp4.500.000',
-link: 'detail.html?id=1'
-    },
-    {
-                        id: 10,
-                        category: 'family',
-                        img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=600&auto=format&fit=crop',
-                        title: 'Disneyland Tokyo Family',
-                        rating: 4.9,
-                        reviews: 312,
-                        duration: '4 days',
-                        participants: 'Up to 5 People',
-                        price: 'Rp7.800.000'
-                    },
-],
-                honeymoon: [
-                                        {
-                        id: 7,
-                        category: 'honeymoon',
-                        img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=600&auto=format&fit=crop',
-                        title: 'Romantic Sunset in Ubud',
-                        rating: 4.9,
-                        reviews: 178,
-                        duration: '3 days',
-                        participants: 'Couple Only',
-                        price: 'Rp3.900.000'
-                    },
-                ],
-                adventure: [
-                {
+                    {
                         id: 6,
                         category: 'adventure',
-                        img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600&auto=format&fit=crop',
+                        img: 'https://i.pinimg.com/736x/7c/7c/51/7c7c51b2399f9f92524b3d77cd2ebea0.jpg',
                         title: 'Mount Rinjani Trekking',
                         rating: 4.7,
                         reviews: 412,
@@ -1082,36 +974,54 @@ link: 'detail.html?id=1'
                         participants: 'Up to 8 People',
                         price: 'Rp2.500.000'
                     },
-                ],
-                opentrip: [
-                     {
-                        id: 14,
-                        category: 'opentrip',
-                        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop',
-                        title: 'Bali Volcano Open Trip',
-                        rating: 4.7,
-                        reviews: 167,
-                        duration: '2 days',
-                        participants: 'Open Trip',
-                        price: 'Rp1.200.000'
+                    {
+                        id: 7,
+                        category: 'honeymoon',
+                        img: 'https://i.pinimg.com/736x/e4/7d/1d/e47d1d99bd9715cd5c27c9020d766d23.jpg',
+                        title: 'Romantic Sunset in Ubud',
+                        rating: 4.9,
+                        reviews: 178,
+                        duration: '3 days',
+                        participants: 'Couple Only',
+                        price: 'Rp3.900.000'
                     },
-                     {
-                        id: 14,
-                        category: 'opentrip',
-                        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop',
-                        title: 'Bali Volcano Open Trip',
-                        rating: 4.7,
-                        reviews: 167,
-                        duration: '2 days',
-                        participants: 'Open Trip',
-                        price: 'Rp1.200.000'
+                    {
+                        id: 8,
+                        category: 'corporate',
+                        img: 'https://i.pinimg.com/1200x/f9/c9/b9/f9c9b960eca15ac81e9b33940d92b448.jpg',
+                        title: 'Corporate Retreat Bali',
+                        rating: 4.6,
+                        reviews: 95,
+                        duration: '5 days',
+                        participants: '10-20 People',
+                        price: 'Rp12.500.000'
                     },
-                ],
-                corporate: [
-                      {
+                    {
+                        id: 9,
+                        category: 'opentrip',
+                        img: 'https://i.pinimg.com/1200x/7d/59/8c/7d598c10c56ce4a06fcfe00d3cfe15d9.jpg',
+                        title: 'Java Overland Open Trip',
+                        rating: 4.8,
+                        reviews: 223,
+                        duration: '7 days',
+                        participants: 'Open Trip',
+                        price: 'Rp5.200.000'
+                    },
+                    {
+                        id: 10,
+                        category: 'family',
+                        img: 'https://i.pinimg.com/1200x/7c/4e/2a/7c4e2a6d4181583a31ac6bed74a1146d.jpg',
+                        title: 'Disneyland Tokyo Family',
+                        rating: 4.9,
+                        reviews: 312,
+                        duration: '4 days',
+                        participants: 'Up to 5 People',
+                        price: 'Rp7.800.000'
+                    },
+                    {
                         id: 11,
                         category: 'corporate',
-                        img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
+                        img: 'https://i.pinimg.com/1200x/21/00/cd/2100cdfe938af1609797796346ff4acf.jpg',
                         title: 'Executive Retreat Lombok',
                         rating: 4.7,
                         reviews: 67,
@@ -1119,18 +1029,89 @@ link: 'detail.html?id=1'
                         participants: '8-15 People',
                         price: 'Rp15.000.000'
                     },
-                      {
-                        id: 11,
-                        category: 'corporate',
-                        img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
-                        title: 'Executive Retreat Lombok',
-                        rating: 4.7,
-                        reviews: 67,
-                        duration: '6 days',
-                        participants: '8-15 People',
-                        price: 'Rp15.000.000'
+                    {
+                        id: 12,
+                        category: 'adventure',
+                        img: 'https://i.pinimg.com/736x/d3/97/b7/d397b7bd12969088f573a14191892b91.jpg',
+                        title: 'Raja Ampat Diving Adventure',
+                        rating: 4.9,
+                        reviews: 189,
+                        duration: '8 days',
+                        participants: 'Up to 6 People',
+                        price: 'Rp8.500.000'
                     },
-                ]
+                    {
+                        id: 13,
+                        category: 'honeymoon',
+                        img: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=600&auto=format&fit=crop',
+                        title: 'Honeymoon in Maldives',
+                        rating: 5.0,
+                        reviews: 456,
+                        duration: '7 days',
+                        participants: 'Couple Only',
+                        price: 'Rp16.200.000'
+                    },
+                    {
+                        id: 14,
+                        category: 'opentrip',
+                        img: 'https://i.pinimg.com/736x/8c/bc/d1/8cbcd1a712a91ef450ddb1508e83d9a7.jpg',
+                        title: 'Bali Volcano Open Trip',
+                        rating: 4.7,
+                        reviews: 167,
+                        duration: '2 days',
+                        participants: 'Open Trip',
+                        price: 'Rp1.200.000'
+                    },
+                    {
+                        id: 15,
+                        category: 'corporate',
+                        img: 'https://i.pinimg.com/736x/65/e8/b7/65e8b70f6bc7a641731be823a95a3a51.jpg',
+                        title: 'Corporate Event Jakarta',
+                        rating: 4.5,
+                        reviews: 54,
+                        duration: '3 days',
+                        participants: '20-50 People',
+                        price: 'Rp22.000.000'
+                    },
+                    {
+                        id: 16,
+                        category: 'family',
+                        img: 'https://i.pinimg.com/1200x/db/21/ec/db21ece188a066accd73c3e6d23c2a41.jpg',
+                        title: 'Cultural Family Tour Java',
+                        rating: 4.6,
+                        reviews: 143,
+                        duration: '5 days',
+                        participants: 'Up to 4 People',
+                        price: 'Rp4.800.000'
+                    },
+                    {
+                        id: 17,
+                        category: 'adventure',
+                        img: 'https://i.pinimg.com/736x/84/ab/33/84ab33c82b1364704c10a235f97b0935.jpg',
+                        title: 'Surfing Adventure Bali',
+                        rating: 4.8,
+                        reviews: 278,
+                        duration: '5 days',
+                        participants: 'Up to 4 People',
+                        price: 'Rp3.200.000'
+                    },
+                    {
+                        id: 18,
+                        category: 'honeymoon',
+                        img: 'https://i.pinimg.com/736x/58/ef/47/58ef47a9f7b901ce77be4d5f51e97c30.jpg',
+                        title: 'Santorini Honeymoon Escape',
+                        rating: 5.0,
+                        reviews: 523,
+                        duration: '8 days',
+                        participants: 'Couple Only',
+                        price: 'Rp18.500.000'
+                    }
+                ],
+                family: [],
+                honeymoon: [],
+                adventure: [],
+                opentrip: [],
+                corporate: []
             };
 
             // Populate category data
