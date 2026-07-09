@@ -1,5 +1,6 @@
 {
     "livePreview.defaultPreviewPath": "index.html",
     "CodeGPT.apiKey": "Anthropic",
-    "chat.disableAIFeatures": false
+    "chat.disableAIFeatures": false,
+    "liveServer.settings.port": 5501
 }
