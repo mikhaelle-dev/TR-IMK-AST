@@ -233,16 +233,57 @@
         }
 
         /* --- Category Cards --- */
-        .category-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 25px 15px;
-            text-align: center;
-            transition: all 0.35s ease;
-            background: #fff;
-            height: 100%;
-            cursor: pointer;
-        }
+       .category-card{
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:25px 15px;
+    text-align:center;
+    background:#fff;
+    height:100%;
+    cursor:pointer;
+    transition:all .35s ease;
+
+    opacity:0;
+    transform:translateY(30px);
+    animation:cardFade .6s ease forwards;
+}
+
+#categoryContainer > div:nth-child(1) .category-card{
+    animation-delay:.1s;
+}
+
+#categoryContainer > div:nth-child(2) .category-card{
+    animation-delay:.2s;
+}
+
+#categoryContainer > div:nth-child(3) .category-card{
+    animation-delay:.3s;
+}
+
+#categoryContainer > div:nth-child(4) .category-card{
+    animation-delay:.4s;
+}
+
+#categoryContainer > div:nth-child(5) .category-card{
+    animation-delay:.5s;
+}
+
+#categoryContainer > div:nth-child(6) .category-card{
+    animation-delay:.6s;
+}
+
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+        
+        
 
         .category-card:hover {
             background: #0b6e8d;
@@ -500,13 +541,57 @@
             color: #9ca3af;
             padding-top: 4rem;
             padding-bottom: 1.5rem;
-            margin-top: 5rem;
+            /* margin-top: 5rem; */
         }
 
         footer h5 {
             color: white;
             font-weight: 700;
         }
+        /* animasi */
+        .hero-title{
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp .8s ease forwards;
+}
+
+.hero-subtitle{
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp .8s ease forwards;
+    animation-delay: .2s;
+}
+
+.booking-widget{
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px);
+    animation: bookingFade .8s ease forwards;
+    animation-delay: .4s;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bookingFade{
+    from{
+        opacity:0;
+        transform:translateX(-50%) translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(-50%) translateY(0);
+    }
+}
+
+
 
         .social-circle {
             width: 40px;
@@ -640,13 +725,20 @@
             .tour-img-wrap {
                 height: 160px;
             }
+            
         }
     </style>
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <div id="navbar-container" data-component="../asset/navbar.html"></div>
+=======
+<div id="navbar-container"
+     data-component="/asset/navbar.html">
+</div>
+>>>>>>> 545e3ddc8fc7dde19b62d51c2ceca2cbb977eeb9
 
     <!-- Hero Section -->
     <section class="hero-tour">
@@ -702,6 +794,7 @@
     <!-- Main Content -->
     <div class="container mt-5 pt-4">
 
+<<<<<<< HEAD
         <!-- Explore by Category -->
         <h4 class="fw-bold mb-4" style="color: var(--teal-dark);">Explore by Category</h4>
         <div class="row g-3 mb-5 pb-3" id="categoryContainer">
@@ -753,7 +846,70 @@
                     <span class="badge-soft">3 Packages</span>
                 </div>
             </div>
+=======
+      <!-- Explore by Category -->
+<h4 class="fw-bold mb-4" style="color: var(--teal-dark);">
+    Explore by Category
+</h4>
+
+<div class="row g-3 mb-5 pb-3" id="categoryContainer">
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="family">
+            <div class="cat-icon"><i class="fas fa-user-friends"></i></div>
+            <h6 class="fw-bold mb-1">Family Trip</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Fun for all ages</p>
+            <span class="badge-soft">3 Packages</span>
+>>>>>>> 545e3ddc8fc7dde19b62d51c2ceca2cbb977eeb9
         </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="honeymoon">
+            <div class="cat-icon"><i class="fas fa-heart"></i></div>
+            <h6 class="fw-bold mb-1">Honeymoon</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Romantic escapes</p>
+            <span class="badge-soft">2 Packages</span>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="adventure">
+            <div class="cat-icon"><i class="fas fa-compass"></i></div>
+            <h6 class="fw-bold mb-1">Adventure</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Thrill seekers</p>
+            <span class="badge-soft">1 Packages</span>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="opentrip">
+            <div class="cat-icon"><i class="fas fa-users"></i></div>
+            <h6 class="fw-bold mb-1">Open Trip</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Meet new friends</p>
+            <span class="badge-soft">3 Packages</span>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="corporate">
+            <div class="cat-icon"><i class="fas fa-building"></i></div>
+            <h6 class="fw-bold mb-1">Corporate</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Business & leisure</p>
+            <span class="badge-soft">2 Packages</span>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2">
+        <div class="category-card" data-category="studytour">
+            <div class="cat-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h6 class="fw-bold mb-1">Study Tour</h6>
+            <p class="text-muted small mb-3" style="font-size: 0.7rem;">Educational trips</p>
+            <span class="badge-soft">5 Packages</span>
+        </div>
+    </div>
+
+</div>
 
         <!-- Featured Tour Packages -->
         <h4 class="fw-bold mb-4" style="color: var(--teal-dark);">Featured Tour Packages</h4>
@@ -819,7 +975,10 @@
             <h2 class="fw-bold mb-3">Can't Find Right Package?</h2>
             <p class="mb-4 fw-light fs-5 mx-auto" style="max-width: 600px;">Our travel experts can help create a
                 personalized itinerary for your group. Let us build your dream trip from scratch.</p>
-            <button class="btn btn-outline-light rounded-pill px-5 py-2 fw-bold">Contact Experts</button>
+            <a href="../about-us/about.html#contact"
+   class="btn btn-outline-light rounded-pill px-5 py-2 fw-bold">
+    Contact Experts
+</a>
         </div>
     </div>
 
@@ -917,7 +1076,8 @@
                         reviews: 234,
                         duration: '6 days',
                         participants: 'Up to 4 People',
-                        price: 'Rp4.500.000'
+                        price: 'Rp4.500.000',
+                        link: 'detailtour.html?id=1'
                     },
                     {
                         id: 2,
@@ -928,7 +1088,8 @@
                         reviews: 208,
                         duration: '4 days',
                         participants: 'Couple Only',
-                        price: 'Rp4.200.000'
+                        price: 'Rp4.200.000',
+                        link: 'detailyogya.html?id=2'
                     },
                     {
                         id: 3,
@@ -961,9 +1122,143 @@
                         reviews: 289,
                         duration: '3 days',
                         participants: 'Open Trip',
-                        price: 'Rp3.800.000'
+                        price: 'Rp3.800.000',
+                        link: 'komododetail.html?id=3'
                     },
+<<<<<<< HEAD
                     {
+=======
+                    // {
+                    //     id: 6,
+                    //     category: 'adventure',
+                    //     img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Mount Rinjani Trekking',
+                    //     rating: 4.7,
+                    //     reviews: 412,
+                    //     duration: '4 days',
+                    //     participants: 'Up to 8 People',
+                    //     price: 'Rp2.500.000'
+                    // },
+                    // {
+                    //     id: 7,
+                    //     category: 'honeymoon',
+                    //     img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Romantic Sunset in Ubud',
+                    //     rating: 4.9,
+                    //     reviews: 178,
+                    //     duration: '3 days',
+                    //     participants: 'Couple Only',
+                    //     price: 'Rp3.900.000'
+                    // },
+                    // {
+                    //     id: 8,
+                    //     category: 'corporate',
+                    //     img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Corporate Retreat Bali',
+                    //     rating: 4.6,
+                    //     reviews: 95,
+                    //     duration: '5 days',
+                    //     participants: '10-20 People',
+                    //     price: 'Rp12.500.000'
+                    // },
+                    // {
+                    //     id: 9,
+                    //     category: 'opentrip',
+                    //     img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Java Overland Open Trip',
+                    //     rating: 4.8,
+                    //     reviews: 223,
+                    //     duration: '7 days',
+                    //     participants: 'Open Trip',
+                    //     price: 'Rp5.200.000'
+                    // },
+                    // {
+                    //     id: 10,
+                    //     category: 'family',
+                    //     img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Disneyland Tokyo Family',
+                    //     rating: 4.9,
+                    //     reviews: 312,
+                    //     duration: '4 days',
+                    //     participants: 'Up to 5 People',
+                    //     price: 'Rp7.800.000'
+                    // },
+                    // {
+                    //     id: 11,
+                    //     category: 'corporate',
+                    //     img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Executive Retreat Lombok',
+                    //     rating: 4.7,
+                    //     reviews: 67,
+                    //     duration: '6 days',
+                    //     participants: '8-15 People',
+                    //     price: 'Rp15.000.000'
+                    // },
+                    // {
+                    //     id: 14,
+                    //     category: 'opentrip',
+                    //     img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Bali Volcano Open Trip',
+                    //     rating: 4.7,
+                    //     reviews: 167,
+                    //     duration: '2 days',
+                    //     participants: 'Open Trip',
+                    //     price: 'Rp1.200.000'
+                    // },
+                    // {
+                    //     id: 16,
+                    //     category: 'family',
+                    //     img: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=600&auto=format&fit=crop',
+                    //     title: 'Cultural Family Tour Java',
+                    //     rating: 4.6,
+                    //     reviews: 143,
+                    //     duration: '5 days',
+                    //     participants: 'Up to 4 People',
+                    //     price: 'Rp4.800.000'
+                    // },
+    
+                ],
+                family: [
+    {
+                     id: 1,
+                     category: 'family',
+                     img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600&auto=format&fit=crop',
+                     title: 'Bali Luxury Family Escape',
+                     rating: 4.9,
+                     reviews: 234,
+                    duration: '6 days',
+                    participants: 'Up to 4 People',
+                    price: 'Rp4.500.000',
+                    link: 'detailtour.html?id=1'
+    },
+    {
+                        id: 10,
+                        category: 'family',
+                        img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=600&auto=format&fit=crop',
+                        title: 'Disneyland Tokyo Family',
+                        rating: 4.9,
+                        reviews: 312,
+                        duration: '4 days',
+                        participants: 'Up to 5 People',
+                        price: 'Rp7.800.000'
+                    },
+],
+                honeymoon: [
+                                        {
+                        id: 7,
+                        category: 'honeymoon',
+                        img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=600&auto=format&fit=crop',
+                        title: 'Romantic Sunset in Ubud',
+                        rating: 4.9,
+                        reviews: 178,
+                        duration: '3 days',
+                        participants: 'Couple Only',
+                        price: 'Rp3.900.000'
+                    },
+                ],
+                adventure: [
+                {
+>>>>>>> 545e3ddc8fc7dde19b62d51c2ceca2cbb977eeb9
                         id: 6,
                         category: 'adventure',
                         img: 'https://i.pinimg.com/736x/7c/7c/51/7c7c51b2399f9f92524b3d77cd2ebea0.jpg',
@@ -1040,6 +1335,7 @@
                         participants: 'Up to 6 People',
                         price: 'Rp8.500.000'
                     },
+<<<<<<< HEAD
                     {
                         id: 13,
                         category: 'honeymoon',
@@ -1077,6 +1373,14 @@
                         id: 16,
                         category: 'family',
                         img: 'https://i.pinimg.com/1200x/db/21/ec/db21ece188a066accd73c3e6d23c2a41.jpg',
+=======
+                ],
+                studytour: [
+                    {
+                        id: 16,
+                        category: 'studytour',
+                        img: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=600&auto=format&fit=crop',
+>>>>>>> 545e3ddc8fc7dde19b62d51c2ceca2cbb977eeb9
                         title: 'Cultural Family Tour Java',
                         rating: 4.6,
                         reviews: 143,
@@ -1084,6 +1388,7 @@
                         participants: 'Up to 4 People',
                         price: 'Rp4.800.000'
                     },
+<<<<<<< HEAD
                     {
                         id: 17,
                         category: 'adventure',
@@ -1112,6 +1417,9 @@
                 adventure: [],
                 opentrip: [],
                 corporate: []
+=======
+                ]
+>>>>>>> 545e3ddc8fc7dde19b62d51c2ceca2cbb977eeb9
             };
 
             // Populate category data
@@ -1175,14 +1483,18 @@
                                         <div class="mb-1"><i class="far fa-clock me-2"></i> ${pkg.duration}</div>
                                         <div><i class="fas fa-user-friends me-2"></i> ${pkg.participants}</div>
                                     </div>
-                                    <div class="mt-auto d-flex justify-content-between align-items-end">
-                                        <div>
-                                            <small class="text-muted d-block" style="font-size: 0.7rem;">Starting from</small>
-                                            <span class="fw-bold" style="color: var(--primary-blue);">${pkg.price}</span>
-                                        </div>
-                                        <button class="btn btn-primary rounded-pill fw-bold px-4 btn-sm"
-                                            style="background-color: var(--teal-dark); border:none;">View Details</button>
-                                    </div>
+                                   <div class="mt-auto d-flex justify-content-between align-items-end">
+                     <div>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Starting from</small>
+                            <span class="fw-bold" style="color: var(--primary-blue);">${pkg.price}</span>
+                    </div>
+
+                                 <a href="${pkg.link || '#'}"
+                             class="btn btn-primary rounded-pill fw-bold px-4 btn-sm"
+                            style="background-color: var(--teal-dark); border:none;">
+                            View Details
+                             </a>
+                            </div>
                                 </div>
                             </div>
                         </div>

@@ -45,20 +45,47 @@ function loadComponent(componentPath, targetId, callback) {
 function setActiveNavLink() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     navLinks.forEach(link => {
-        // Hapus class active dari semua link
         link.classList.remove('active');
-        
-        // Ambil href dari link
+
         const href = link.getAttribute('href');
         if (!href) return;
-        
-        // Bandingkan dengan path saat ini
-        // Cek apakah href cocok dengan currentPath
-        if (currentPath.endsWith(href) || 
-            currentPath === href || 
-            currentPath === '/' + href) {
+
+        // halaman yang sama
+        if (currentPath === href || currentPath.endsWith(href)) {
+            link.classList.add('active');
+        }
+
+        // semua halaman dalam folder /tour/
+        if (
+            currentPath.includes('/tour/') &&
+            href.includes('/tour/tour.html')
+        ) {
+            link.classList.add('active');
+        }
+
+        // semua halaman destination
+        if (
+            currentPath.includes('/destination/') &&
+            href.includes('/destination/destination.html')
+        ) {
+            link.classList.add('active');
+        }
+
+        // semua halaman guide
+        if (
+            currentPath.includes('/guide/') &&
+            href.includes('/guide/guide.html')
+        ) {
+            link.classList.add('active');
+        }
+
+        // semua halaman faq
+        if (
+            currentPath.includes('/faq/') &&
+            href.includes('/faq/faq.html')
+        ) {
             link.classList.add('active');
         }
     });
