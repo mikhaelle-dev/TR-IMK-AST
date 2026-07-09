@@ -52,7 +52,7 @@ function setActiveNavLink() {
         const href = link.getAttribute('href');
         if (!href) return;
 
-        // halaman yang sama
+        // halaman yang sam
         if (currentPath === href || currentPath.endsWith(href)) {
             link.classList.add('active');
         }
